@@ -3,26 +3,12 @@
   padding-bottom: 40px;
 }
 
-// CARD SET
 .card-set {
-  padding: 0;
-  margin: 0;
-
-  list-style: none;
-
   display: flex;
   flex-wrap: wrap;
-  margin-left: calc(-1 * 56px);
-  margin-top: calc(-1 * 56px);
+  justify-content: center;
 }
 
-.card-set > .item {
-  flex-basis: calc(100% / 4 - 56px);
-  margin-left: $card-set-gap;
-  margin-top: $card-set-gap;
-}
-
-/* CARD */
 .card {
   text-align: center;
   border-radius: 50px 0 0 0;
@@ -44,51 +30,106 @@
   border-radius: 50px 0px;
 }
 
-.card-thumb {
-  overflow: hidden;
-}
-
-.card-image {
-  height: 227px;
-  border-radius: 50px 0px;
-}
-
 .event-info {
   background-color: transparent;
-}
-
-.event-name {
-  margin-top: 5px;
-  color: $title-text-color;
   font-family: $font-montserrat;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.25;
 }
 
-.event-date {
-  margin-top: 5px;
-  color: $subtitle-text-color;
-  font-family: $font-montserrat;
-
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
-}
-
+.event-name,
+.event-date,
 .location-link {
   margin-top: 5px;
-  color: $subtitle-text-color;
-  font-family: $font-montserrat;
-
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.2;
 }
 
-.icon-location {
-  fill: currentColor;
+@media screen and (max-width: $max-mobile) {
+  .card-set {
+    margin-left: calc(-1 * 14px);
+    margin-top: calc(-1 * 30px);
+  }
+
+  .card-set > .item {
+    flex-basis: calc(100% / 2 - 30px);
+    margin-left: 14px;
+    margin-top: 30px;
+  }
+
+  .card::before {
+    width: 110px;
+    height: 100px;
+    top: -10px;
+    right: -10px;
+  }
+
+  .card-image {
+    height: 160px;
+    border-radius: 50px 0px;
+  }
+
+  .event-name {
+    @include font-data(14px, $title-text-color, 700, 1.2);
+  }
+
+  .event-date {
+    @include font-data(14px, $subtitle-text-color, 400, 1.2);
+  }
+
+  .location-link {
+    @include font-data(12px, $subtitle-text-color, 600, 1.25);
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .card-set {
+    margin-left: calc(-1 * 27px);
+    margin-top: calc(-1 * 45px);
+  }
+
+  .card-set > .item {
+    flex-basis: calc(100% / 3 - 45px);
+    margin-left: 27px;
+    margin-top: 45px;
+  }
+
+  .card::before {
+    width: 153px;
+    height: 143px;
+    top: -14px;
+    right: -14px;
+  }
+
+  .card-thumb {
+    overflow: hidden;
+  }
+
+  .card-image {
+    height: 227px;
+    border-radius: 50px 0px;
+  }
+
+  .event-name {
+    @include font-data(16px, $title-text-color, 700, 1.25);
+  }
+
+  .event-date {
+    @include font-data(16px, $subtitle-text-color, 400, 1.25);
+  }
+
+  .location-link {
+    @include font-data(14px, $subtitle-text-color, 600, 1.2);
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .card-set {
+    margin-left: calc(-1 * 56px);
+    margin-top: calc(-1 * 56px);
+  }
+
+  .card-set > .item {
+    flex-basis: calc(100% / 4 - 56px);
+    margin-left: $card-set-gap;
+    margin-top: $card-set-gap;
+  }
 }
 
 .pagination {
