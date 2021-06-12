@@ -1,0 +1,65 @@
+<section class="header">
+    <a href="#">
+        <picture>
+            <source
+              media="(min-width: 1280px)"
+                srcset="
+                  ./images/logo-pc.png 1x,
+                  ./images/logo-pc@2x.png 2x
+                "
+            />
+            <source
+              media="(min-width: 768px)"
+                srcset="
+                ./images/logo-tablet.png    1x,
+                    ./images/logo-tablet@2x.png 2x
+                "
+            />
+            <img
+              srcset="
+                    ./images/logo-mobile.png    1x,
+                    ./images/logo-mobile@2x.png 2x
+                "
+                src="./images/logo-mobile.png"
+                alt="Logo"
+                class="img__logo"
+                loading="lazy"
+            />
+          </picture>
+        </a>
+    <h1 class="title">FIND BEST EVENTS<br>
+        AROUND THE WORLD</h1>
+
+        <div class="form-container">
+        <form class="search-form js-form" id="search-form">
+            
+            <input
+                type="text"
+                name="query"
+                autocomplete="off"
+                placeholder="Start searching"
+                class="input"
+            />
+        </form>
+
+        <select class="search-form search-country" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+
+
+
+        <!-- <form class="search-form" id="search-form">
+            <input
+                type="text"
+                name="query"
+                autocomplete="off"
+                placeholder="Choose country"
+                class="search-country"
+            />
+        </form> -->
+        </div>
+</section>
+<div> 
