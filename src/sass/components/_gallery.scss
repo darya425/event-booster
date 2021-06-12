@@ -1,6 +1,6 @@
-// Vlipila ot fonarja chtob udobnej bilo rabotat'
-main {
+.gallery {
   padding-top: 30px;
+  padding-bottom: 40px;
 }
 
 // CARD SET
@@ -39,10 +39,8 @@ main {
   height: 143px;
   top: -14px;
   right: -14px;
-  z-index: 10;
 
   border: 1px solid rgba(220, 86, 197, 0.3);
-  box-sizing: border-box;
   border-radius: 50px 0px;
 }
 
@@ -91,4 +89,34 @@ main {
 
 .icon-location {
   fill: currentColor;
+}
+
+.pagination {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  color: $subtitle-text-color;
+}
+
+.page-number {
+  list-style: none;
+  padding: 5px 12px;
+  margin-left: 5px;
+}
+.next-page {
+  margin-left: 5px;
+}
+
+.page-number.page-active {
+  border-style: solid;
+  border: 1px solid $title-text-color;
+  border-radius: 10px 0px;
+}
+
+.page-active a {
+  color: $title-text-color;
 }
