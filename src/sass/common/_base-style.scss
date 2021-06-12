@@ -4,6 +4,9 @@
 //     padding-top: 270px;
 //   }
 // }
+body {
+  background: url('../images/noise-body.png'), url('../images/bg-body.png');
+}
 
 img {
   display: block;
@@ -43,13 +46,13 @@ a {
 
   @media screen and (min-width: $tablet) {
     width: $tablet;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 85px;
+    padding-right: 85px;
   }
 
   @media screen and (min-width: $desktop) {
     width: $desktop;
-    padding-left: 160px;
-    padding-right: 160px;
+    padding-left: 175px;
+    padding-right: 175px;
   }
 }
