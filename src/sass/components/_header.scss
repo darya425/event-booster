@@ -142,3 +142,32 @@ align-items: center;
 position: absolute;
     z-index: 1;
 }
+
+.bcg-logo{
+    border-radius: 50%;
+    position: absolute;
+    
+    background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
+    backdrop-filter: blur(30px);
+    transform: rotate(-90deg);
+    @media screen and (max-width: 767px) {
+        width: 180px;
+        height: 213.97px;
+        left: -93px;
+        top: -105px;
+        }
+        
+        @media screen and (min-width: 768px) {
+            width: 359px;
+            height: 302px;
+            left: -156px;
+            top: -172px;
+        }
+        
+        @media screen and (min-width: 1280px) {
+            width: 477px;
+            height: 402px;
+            left: -204px;
+            top: -242px;
+        }
+}
