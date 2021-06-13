@@ -77,3 +77,73 @@
 //     opacity: 0;
 //     pointer-events: none;
 // }
+
+//разметка Александр
+.event-title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.20;
+// margin-bottom: 7 px;
+  color: $title-text-color;
+
+}
+
+.modal .button {
+ width: 145px;
+ height: 40px;
+ background: $modal-button;
+ border-radius: 5px;
+ margin-bottom: 20px;
+ cursor: pointer;
+
+ font-family: Montserrat;
+ font-style: normal;
+ font-weight: 500;
+ font-size: 16px;
+ line-height: 1.25;
+
+ color: $subtitle-text-color;
+}
+
+
+.text-info {
+    
+ font-family: Montserrat;
+ font-style: normal;
+ font-weight: normal;
+ font-size: 18px;
+ line-height: 1.22;
+
+ color: $modal-text;
+
+}
+.price-line {
+    display: flex;
+    flex-direction: inherit;
+
+}
+.close-icon {
+    margin-right: 13px;
+    margin-bottom: 20px;
+}
+
+
+.more-author-events {
+
+    height: 40px;
+    padding: 10px 3px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: $modal-button;
+
+    border: 1px solid $modal-button;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+}
