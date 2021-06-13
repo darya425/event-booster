@@ -1,178 +1,208 @@
-.header{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    position: relative;
+.header {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  position: relative;
 
-
-    @media screen and (max-width: 767px) {
-        height: 364px;
-    background-image: linear-gradient(
-        to right,
-        rgba(11, 11, 11, 0.5),
-        rgba(13, 13, 13, 0)
-    ),
-    url(../images/header-img-mobile.jpg);
+  @media screen and (max-width: 767px) {
+    height: 364px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+      url(../images/header-img-mobile.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192dpi),
-        screen and (min-resolution: 2dppx) {
-            background-image: linear-gradient(
-                to right,
-                rgba(11, 11, 11, 0.5),
-                rgba(13, 13, 13, 0)
-            ),
-            url(../images/header-img-mobile@2x.jpg);
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+        url(../images/header-img-mobile@2x.jpg);
     }
-}
+  }
 
-    @media screen and (min-width: 768px) {
-        height: 364px;
-    background-image:
-    linear-gradient(
-        to right,
-        rgba(11, 11, 11, 0.5),
-        rgba(13, 13, 13, 0)
-    ),
-    url(../images/header-img-tablet.jpg);
+  @media screen and (min-width: 768px) {
+    height: 364px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+      url(../images/header-img-tablet.jpg);
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        background-image: linear-gradient(
-            to right,
-            rgba(11, 11, 11, 0.5),
-            rgba(13, 13, 13, 0)
-        ),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
         url(../images/header-img-tablet@2x.jpg);
-}
     }
 
-    @media screen and (min-width: 1280px) {
-        height: 446px;
-    background-image: linear-gradient(
-        to right,
-        rgba(11, 11, 11, 0.5),
-        rgba(13, 13, 13, 0)
-    ),
-    url(../images/header-img-pc.jpg);
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 1px;
+      height: 469px;
+      top: 0;
+      left: 87px;
+      z-index: 14;
+      background: #212121;
+      box-sizing: border-box;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 1px;
+      height: 1525px;
+      top: 0;
+      right: 87px;
+      z-index: 14;
+      background: #212121;
+      box-sizing: border-box;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 446px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+      url(../images/header-img-pc.jpg);
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        background-image: linear-gradient(
-            to right,
-            rgba(11, 11, 11, 0.5),
-            rgba(13, 13, 13, 0)
-        ),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
         url(../images/header-img-pc@2x.jpg);
-}
-}
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 1px;
+      height: 742px;
+      top: 0;
+      left: 115px;
+      z-index: 14;
+      background: #212121;
+      box-sizing: border-box;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 1px;
+      height: 1267px;
+      top: 0;
+      right: 115px;
+      z-index: 14;
+      background: #212121;
+      box-sizing: border-box;
+    }
+  }
 }
 
-.title{
-color: $title-text-color;
-font-family: Montserrat;
-font-weight: 900;
-margin-top: 0;
-margin-bottom: 0;
+.title {
+  color: $title-text-color;
+  font-family: Montserrat;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 0;
 
-text-align: center;
-@media screen and (max-width: 767px) {
-padding-top: 78px;
-padding-bottom: 25px;
-font-size: 18px;
-line-height: 1.22;
-}
+  text-align: center;
+  @media screen and (max-width: 767px) {
+    padding-top: 78px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.22;
+  }
 
-@media screen and (min-width: 768px) {
-padding-top: 40px;
-padding-bottom: 27px;
-font-size: 30px;
-line-height: 1.23;
-}
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 27px;
+    font-size: 30px;
+    line-height: 1.23;
+  }
 
-@media screen and (min-width: 1280px) {
-padding-bottom: 52px;
-font-size: 50px;
-line-height: 1.22;
-}
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 52px;
+    font-size: 50px;
+    line-height: 1.22;
+  }
 }
 
 .input,
-.search-country{
-width: 270px;
-height: 40px;
-border-radius: 20px;
-border-width: 0;
-backdrop-filter: blur(20px);
-background-color: rgba(255, 255, 255, 0.2);
-color: #939393;
-padding-left: 30px;
-padding-top: 10px;
-padding-bottom: 10px;
-font-family: Montserrat;
-font-weight: normal;
-font-size: 16px;
-line-height: 20px;
+.search-country {
+  width: 270px;
+  height: 40px;
+  border-radius: 20px;
+  border-width: 0;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #939393;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
 }
 
-.input{
-    @media screen and (max-width: 767px){
+.input {
+  @media screen and (max-width: 767px) {
     margin-bottom: 25px;
-}
-@media screen and (min-width: 768px) {
-margin-right: 30px;
-    }
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
 
-    &::placeholder {
-        color: #939393;
-    }
-}
-
-
-.form-container{
-@media screen and (max-width: 767px){
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-@media screen and (min-width: 768px) {
-display: flex;
-justify-content: center;
-align-items: center;
-}
+  &::placeholder {
+    color: #939393;
+  }
 }
 
-.img__logo{
-position: absolute;
-    z-index: 1;
+.form-container {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-.bcg-logo{
-    border-radius: 50%;
-    position: absolute;
-    
-    background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
-    backdrop-filter: blur(30px);
-    transform: rotate(-90deg);
-    @media screen and (max-width: 767px) {
-        width: 180px;
-        height: 213.97px;
-        left: -93px;
-        top: -105px;
-        }
-        
-        @media screen and (min-width: 768px) {
-            width: 359px;
-            height: 302px;
-            left: -156px;
-            top: -172px;
-        }
-        
-        @media screen and (min-width: 1280px) {
-            width: 477px;
-            height: 402px;
-            left: -204px;
-            top: -242px;
-        }
+.img__logo {
+  position: absolute;
+  z-index: 19;
+}
+
+.bcg-logo {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 18;
+
+  background: linear-gradient(
+    136.07deg,
+    rgba(196, 196, 196, 0.03) 10.75%,
+    rgba(196, 196, 196, 0) 92.33%
+  );
+  backdrop-filter: blur(30px);
+  transform: rotate(-90deg);
+  @media screen and (max-width: 767px) {
+    width: 180px;
+    height: 213.97px;
+    left: -93px;
+    top: -105px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 359px;
+    height: 302px;
+    left: -156px;
+    top: -172px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 477px;
+    height: 402px;
+    left: -204px;
+    top: -242px;
+  }
 }
