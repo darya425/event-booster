@@ -27,9 +27,7 @@
       screen and (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
         url(../images/header-img-tablet@2x.jpg);
-    }
-
-    &::before {
+     &::before {
       content: '';
       display: inline-block;
       position: absolute;
@@ -41,7 +39,6 @@
       background: #212121;
       box-sizing: border-box;
     }
-
     &::after {
       content: '';
       display: inline-block;
@@ -54,7 +51,7 @@
       background: #212121;
       box-sizing: border-box;
     }
-  }
+    }
 
   @media screen and (min-width: 1280px) {
     height: 446px;
@@ -125,23 +122,35 @@
 }
 
 .input,
-.search-country {
-  width: 270px;
-  height: 40px;
-  border-radius: 20px;
-  border-width: 0;
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #939393;
-  padding-left: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: Montserrat;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
+.js-form-country{
+width: 270px;
+height: 40px;
+border-radius: 20px;
+border-width: 0;
+backdrop-filter: blur(20px);
+background-color: rgba(255, 255, 255, 0.2);
+color: #e0dbdb;
+padding-left: 30px;
+padding-top: 10px;
+padding-bottom: 10px;
+font-family: Montserrat;
+font-weight: bold;
+font-size: 16px;
+line-height: 20px;
+outline: none;
 }
 
+
+input[type="text"]::-webkit-input-placeholder {
+    color: #939393;
+    font-weight: normal;
+} 
+
+input[type="text"]::-moz-placeholder {
+    color: #939393;
+    font-weight: normal;
+}
+  
 .input {
   @media screen and (max-width: 767px) {
     margin-bottom: 25px;
@@ -154,7 +163,7 @@
     color: #939393;
   }
 }
-
+  
 .form-container {
   @media screen and (max-width: 767px) {
     display: flex;
@@ -167,42 +176,37 @@
     align-items: center;
   }
 }
-
-.img__logo {
-  position: absolute;
-  z-index: 19;
+  
+.img__logo{
+position: fixed;
+    z-index: 1;
 }
 
-.bcg-logo {
-  border-radius: 50%;
-  position: absolute;
-  z-index: 18;
-
-  background: linear-gradient(
-    136.07deg,
-    rgba(196, 196, 196, 0.03) 10.75%,
-    rgba(196, 196, 196, 0) 92.33%
-  );
-  backdrop-filter: blur(30px);
-  transform: rotate(-90deg);
-  @media screen and (max-width: 767px) {
-    width: 180px;
-    height: 213.97px;
-    left: -93px;
-    top: -105px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 359px;
-    height: 302px;
-    left: -156px;
-    top: -172px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 477px;
-    height: 402px;
-    left: -204px;
-    top: -242px;
-  }
+.bcg-logo{
+    border-radius: 50%;
+    position: fixed;
+    
+    background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
+    backdrop-filter: blur(30px);
+    transform: rotate(-90deg);
+    @media screen and (max-width: 767px) {
+        width: 180px;
+        height: 213.97px;
+        left: -93px;
+        top: -105px;
+        }
+        
+        @media screen and (min-width: 768px) {
+            width: 359px;
+            height: 302px;
+            left: -156px;
+            top: -172px;
+        }
+        
+        @media screen and (min-width: 1280px) {
+            width: 477px;
+            height: 402px;
+            left: -204px;
+            top: -242px;
+        }
 }
