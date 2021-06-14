@@ -1,0 +1,20 @@
+
+{{#each this}}
+    <li class="item" data-id="{{id}}">
+        <article class="card">
+            <div class="card-thumb">
+                <img class="card-image" loading="lazy" src="./images/image-1.jpg" alt="" />
+            </div>
+            <div class="event-info">
+                <p class="event-name">{{name}}</p>
+                <p class="event-date">Date</p>
+                <a href="" class="location-link">
+                    <svg class="icon-location" width="7" height="10">
+                        <use href="../src/images/sprite.svg#icon-location"></use>
+                    </svg>
+                    {{place.city.name}}
+                </a>
+            </div>
+        </article>
+    </li>
+{{/each}}
