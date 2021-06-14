@@ -25,13 +25,13 @@ $('#selectCountry').on('select2:select', function (e) {
   apiService.fetchEvents();
 });
 
-getDefaultCountry();
-
-refs.keywordInput.addEventListener('input', _.debounce(onKeywordInput, 500));
-
 function onKeywordInput(e) {
   e.preventDefault();
   const inputValue = e.target.value;
   apiService.keyword = inputValue;
   apiService.fetchEvents()
 }
+
+getDefaultCountry();
+
+refs.keywordInput.addEventListener('input', _.debounce(onKeywordInput, 500));
