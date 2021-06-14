@@ -1,0 +1,97 @@
+.js-form-country,
+.select2 {
+  width: 270px;
+  height: 40px;
+  border-radius: 20px;
+  border-width: 0;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #e0dbdb;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  outline: none;
+}
+
+.select2 {
+  padding-right: 30px;
+
+  .select2-selection {
+    height: auto;
+    background-color: transparent;
+    border: none;
+
+    .select2-selection__rendered {
+      height: auto;
+      padding: initial;
+      line-height: initial;
+      color: inherit;
+    }
+
+    .select2-selection__arrow {
+      height: 26px;
+      position: absolute;
+      top: 6px;
+      right: 1px;
+      width: 20px;
+    }
+  }
+}
+
+.select2-container {
+  .select2-search {
+    padding: 0;
+  }
+
+  .select2-search--dropdown .select2-search__field {
+    border: none;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    background-color: inherit; //should be changed
+    border: 1px solid silver; //should be changed
+    color: inherit;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .select2-dropdown {
+    border-radius: 20px;
+    border-width: 0;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #e0dbdb;
+    padding: 10px 30px;
+    margin-top: 5px;
+  }
+
+  .select2-results__option {
+    margin: 2px 0;
+
+    &.select2-results__option--selected {
+      color: inherit; //should be changed
+      background-color: inherit; //should be changed
+    }
+  }
+
+  .select2-results__option--highlighted.select2-results__option--selectable {
+    //blue background
+    background-color: inherit; //should be changed
+  }
+}
+
+.select2-results__options {
+  &::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+}
