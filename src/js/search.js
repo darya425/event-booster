@@ -1,4 +1,6 @@
 import ApiService from './apiService';
+import getEvents from './get-events';
+
 const _ = require('lodash');
 const apiService = new ApiService;
 const refs = {
@@ -18,14 +20,14 @@ function onKeywordInput(e) {
     console.log('change country');
   }
   apiService.keyword = inputValue;
-  apiService.fetchEvents()
+  getEvents();
 }
 function onCountryInput(e) {
   e.preventDefault();
   const inputValue = e.target.value;
   refs.countryInput.dataset.value = inputValue;
   apiService.country = inputValue;
-  apiService.fetchEvents()
+  getEvents();
 }
 
 async function getDefaultCountry() {
@@ -33,4 +35,6 @@ async function getDefaultCountry() {
   refs.countryInput.dataset.value = defCountry;
   refs.countryInput.firstElementChild.setAttribute('value', refs.countryInput.dataset.value);
   apiService.fetchEvents();
+  // getEvents();
 }
+

@@ -39,7 +39,7 @@ export default class ApiService{
     try {
       const response = await fetch(BASE_URL+options);
       const result = await response.json();
-      console.log(result)
+      console.log(result);
       return result;
     } catch (error) {
       //
