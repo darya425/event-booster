@@ -1,4 +1,5 @@
 import ApiService from './apiService';
+import countries from './countriesList.json'
 const _ = require('lodash');
 const apiService = new ApiService;
 const refs = {
@@ -8,29 +9,29 @@ const refs = {
 
 getDefaultCountry();
 
+async function getDefaultCountry() {
+  const defCountry = await apiService.getCountryByLocation();
+
+  //initialization select2 list of country
+  $(document).ready(function () {
+    $("#selectCountry").select2({
+      placeholder: 'Select country',
+      data: countries,
+    }).val(defCountry).trigger('change');
+})
+  apiService.fetchEvents();
+}
+// listener for select list
+$('#selectCountry').on('select2:select', function (e) {
+  apiService.country = e.params.data.id;
+  apiService.fetchEvents();
+});
+
 refs.keywordInput.addEventListener('input', _.debounce(onKeywordInput, 500));
-refs.countryInput.addEventListener('input', _.debounce(onCountryInput, 500));
 
 function onKeywordInput(e) {
   e.preventDefault();
   const inputValue = e.target.value;
-  if (refs.countryInput.dataset.value === '') {
-    console.log('change country');
-  }
   apiService.keyword = inputValue;
   apiService.fetchEvents()
-}
-function onCountryInput(e) {
-  e.preventDefault();
-  const inputValue = e.target.value;
-  refs.countryInput.dataset.value = inputValue;
-  apiService.country = inputValue;
-  apiService.fetchEvents()
-}
-
-async function getDefaultCountry() {
-  const defCountry = await apiService.getCountryByLocation();
-  refs.countryInput.dataset.value = defCountry;
-  refs.countryInput.firstElementChild.setAttribute('value', refs.countryInput.dataset.value);
-  apiService.fetchEvents();
 }
