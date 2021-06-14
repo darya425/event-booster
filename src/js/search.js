@@ -41,14 +41,6 @@ function onCountryInput(e) {
   getEvents();
 }
 
-async function getDefaultCountry() {
-  const defCountry = await apiService.getCountryByLocation();
-  refs.countryInput.dataset.value = defCountry;
-  refs.countryInput.firstElementChild.setAttribute('value', refs.countryInput.dataset.value);
-  apiService.fetchEvents();
-  // getEvents();
-}
-
 getDefaultCountry();
 
 refs.keywordInput.addEventListener('input', _.debounce(onKeywordInput, 500));
