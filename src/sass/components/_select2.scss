@@ -52,8 +52,10 @@
     margin-bottom: 5px;
     border-radius: 20px;
     background-color: inherit; //should be changed
-    border: 1px solid silver; //should be changed
+    border: 1px solid #939393; //should be changed
     color: inherit;
+    padding: 4px 15px;
+    // height: 10px;
 
     &:focus-visible {
       outline: none;
@@ -93,5 +95,39 @@
   &::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  right: 30px;
+
+  b {
+    border-color: #939393 transparent transparent transparent;
+    border-width: 7.5px 6.5px 0 6.5px;
+  }
+}
+
+.select2-container--default.select2-container--open
+  .select2-selection--single
+  .select2-selection__arrow
+  b {
+  border-color: transparent transparent #939393 transparent;
+  border-width: 0 6.5px 8px 6.5px;
+}
+.selection {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.select2-selection__rendered {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.select2 .select2-selection {
+  &:focus-visible {
+    outline: none;
   }
 }
