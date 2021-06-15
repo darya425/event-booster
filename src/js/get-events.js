@@ -1,4 +1,4 @@
-import cardTamplate from '../tamplates/cards.hbs';
+import cardTamplate from '../templates/cards.hbs';
 import ApiService from './apiService';
 
 const apiService = new ApiService;
