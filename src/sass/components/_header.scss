@@ -49,22 +49,17 @@
     background: $elements-border-color;
     box-sizing: border-box;
 
-    @media screen and (min-width: $tablet) and (max-width: $max-tablet) {
+    @media screen and (min-width: $tablet) {
       top: 0;
       bottom: 0;
-      left: 11vw;
+      left: 50%;
+      margin-left: -292px;
     }
 
     @media screen and (min-width: $desktop) {
       top: 0;
       bottom: 0;
-      left: 9vw;
-    }
-
-    @media screen and (min-width: $min-desktop) {
-      top: 0;
-      bottom: 0;
-      left: 13vw;
+      margin-left: -525px;
     }
   }
 
@@ -76,22 +71,17 @@
     background: $elements-border-color;
     box-sizing: border-box;
 
-    @media screen and (min-width: $tablet) and (max-width: $max-tablet) {
+    @media screen and (min-width: $tablet) {
       top: 0;
       bottom: 0;
-      right: 11vw;
+      right: 50%;
+      margin-right: -309px;
     }
 
     @media screen and (min-width: $desktop) {
       top: 0;
       bottom: 0;
-      right: 9vw;
-    }
-
-    @media screen and (min-width: $min-desktop) {
-      top: 0;
-      bottom: 0;
-      right: 13vw;
+      margin-right: -525px;
     }
   }
 }

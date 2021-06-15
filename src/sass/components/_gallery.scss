@@ -133,7 +133,6 @@
 }
 
 .pagination-container {
-  //   margin-top: 80px;
   display: flex;
   justify-content: center;
 }
@@ -164,14 +163,14 @@
 .page-number {
   padding: 5px 12px;
   margin-left: 5px;
-}
 
-.page-number.active-page {
-  border-style: solid;
-  border: 1px solid $title-text-color;
-  border-radius: 10px 0px;
-}
+  &.active-page {
+    border-style: solid;
+    border: 1px solid $title-text-color;
+    border-radius: 10px 0px;
 
-.active-page .pag-link {
-  color: $title-text-color;
+    & .pag-link {
+      color: $title-text-color;
+    }
+  }
 }
