@@ -1,10 +1,6 @@
 // Standard settings
-// body {
-//   @media screen and (max-width: $max-mobile) {
-//     padding-top: 270px;
-//   }
-// }
 body {
+  position: relative;
   background: url('../images/noise-body.png'), url('../images/bg-body.png');
 }
 
