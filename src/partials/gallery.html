@@ -1,7 +1,6 @@
 <section>
   <div class="container gallery">
     <ul class="card-set">
-
       <li class="item">
         <article class="card">
           <div class="card-thumb">
@@ -362,17 +361,19 @@
         </article>
       </li>
     </ul>
-    
-    <ul class="pagination">
-      <li class="previous-page"><a href="#" class="prev">< </a></li>
-      <li class="page-number page-active"><a href="#">1</a></li>
-      <li class="page-number"><a href="#">2</a></li>
-      <li class="page-number"><a href="#">3</a></li>
-      <li class="page-number"><a href="#">4</a></li>
-      <li class="page-number"><a href="#">5</a></li>
-      <li class="page-number"><a href="#">...</a></li>
-      <li class="page-number"><a href="#">29</a></li>
-      <li class="next-page"><a href="#" class="next">></a></li>
-    </ul>
+
+    <div class="pagination-container">
+      <button type="button" class="pagination-button" data-action="decrement"><</button>
+      <ul class="pagination">
+        <li class="page-number active-page"><a href="#">1</a></li>
+        <li class="page-number"><a href="#">2</a></li>
+        <li class="page-number"><a href="#">3</a></li>
+        <li class="page-number"><a href="#">4</a></li>
+        <li class="page-number"><a href="#">5</a></li>
+        <li class="page-number"><a href="#">...</a></li>
+        <li class="page-number"><a href="#">25</a></li>
+      </ul>
+      <button type="button" class="pagination-button" data-action="increment">></button>
+    </div>
   </div>
 </section>
