@@ -1,7 +1,9 @@
 // Standard settings
 body {
   position: relative;
-  background: url('../images/noise-body.png'), url('../images/bg-body.png');
+  min-height: 2376px;
+  background-color: $modal-text;
+  background-image: url('../images/noise-body.png');
 }
 
 h1,
