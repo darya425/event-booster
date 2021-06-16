@@ -47,6 +47,11 @@
     margin-left: 70px;
     flex-basis: calc(100% / 4 - 70px);
   }
+}
+
+.card {
+  text-align: center;
+  border-radius: 50px 0 0 0;
 
   &::before {
     content: '';
@@ -71,23 +76,23 @@
   }
 }
 
-.card {
-  text-align: center;
-  border-radius: 50px 0 0 0;
-}
-
 .card-thumb {
   overflow: hidden;
   border-radius: 50px 0px;
 }
 
 .card-image {
+  overflow: hidden;
   @media screen and (min-width: $mobile) {
     width: 128px;
+    height: 161px;
+    object-fit: cover;
   }
 
   @media screen and (min-width: $tablet) {
-    width: 194px;
+    width: 180px;
+    height: 227px;
+    object-fit: cover;
   }
 }
 
@@ -127,6 +132,10 @@
 .event-name,
 .event-date {
   margin-bottom: 5px;
+}
+
+.location-error {
+  color: red;
 }
 
 // pagination
