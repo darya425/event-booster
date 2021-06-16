@@ -1,7 +1,6 @@
 .gallery {
   position: relative;
   top: -46px;
-  z-index: 999;
 }
 
 .card-set {
@@ -9,52 +8,45 @@
   flex-wrap: wrap;
   justify-content: start;
   margin-bottom: 80px;
-}
 
-.item {
   @media screen and (min-width: $mobile) and (max-width: $max-mobile) {
-    flex-basis: calc(100% / 2 - 7px);
-
-    &:not(:nth-child(-n + 2)) {
-      margin-top: 39px;
-    }
-
-    &:not(:nth-child(2n + 1)) {
-      margin-left: 14px;
-    }
+    margin-top: -39px;
+    margin-left: -14px;
   }
 
   @media screen and (min-width: $tablet) and (max-width: $max-tablet) {
-    flex-basis: calc(100% / 3 - 18px);
-
-    &:not(:nth-child(-n + 3)) {
-      margin-top: 58px;
-    }
-
-    &:not(:nth-child(3n + 1)) {
-      margin-left: 27px;
-    }
+    margin-top: -58px;
+    margin-left: -27px;
   }
 
   @media screen and (min-width: $desktop) {
-    flex-basis: calc(100% / 4 - 54px);
-
-    &:not(:nth-child(-n + 4)) {
-      margin-top: 63px;
-    }
-
-    &:not(:nth-child(4n + 1)) {
-      margin-left: 70px;
-    }
+    margin-top: -63px;
+    margin-left: -70px;
   }
 }
 
-.card {
-  text-align: center;
-  border-radius: 50px 0 0 0;
+.item {
   position: relative;
   top: 0;
   left: 0;
+
+  @media screen and (min-width: $mobile) and (max-width: $max-mobile) {
+    margin-top: 39px;
+    margin-left: 14px;
+    flex-basis: calc(100% / 2 - 14px);
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $max-tablet) {
+    margin-top: 58px;
+    margin-left: 27px;
+    flex-basis: calc(100% / 3 - 27px);
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 63px;
+    margin-left: 70px;
+    flex-basis: calc(100% / 4 - 70px);
+  }
 
   &::before {
     content: '';
@@ -79,6 +71,11 @@
   }
 }
 
+.card {
+  text-align: center;
+  border-radius: 50px 0 0 0;
+}
+
 .card-thumb {
   overflow: hidden;
   border-radius: 50px 0px;
@@ -86,11 +83,11 @@
 
 .card-image {
   @media screen and (min-width: $mobile) {
-    height: 161px;
+    width: 128px;
   }
 
   @media screen and (min-width: $tablet) {
-    height: 227px;
+    width: 194px;
   }
 }
 
@@ -132,6 +129,7 @@
   margin-bottom: 5px;
 }
 
+// pagination
 .pagination-container {
   display: flex;
   justify-content: center;
