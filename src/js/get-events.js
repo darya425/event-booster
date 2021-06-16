@@ -10,6 +10,9 @@ export default async function getEvents() {
     const result = await apiService.fetchEvents();
     const eventsArray = result._embedded.events;
     console.log(eventsArray);
+    eventsArray.forEach(event => {
+      event.images = [event.images.find(image => !image.fallback)]
+    });
     createCardsMarkup(eventsArray);
 
   } catch (error) {

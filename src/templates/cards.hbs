@@ -2,16 +2,28 @@
 <li class='item' data-id='{{id}}'>
     <article class='card'>
         <div class='card-thumb'>
-            <img class='card-image' loading='lazy' src='{{images.0.url}}' alt='' />
+            {{#each images}}
+                {{#unless fallback}}
+                    {{#if url.length}}
+                         <img class='card-image' loading='lazy' src='{{url}}' alt='' />
+                    {{ else }}
+                        <img class='card-image' loading='lazy' src='https://cdn.pixabay.com/photo/2021/01/28/08/51/girl-5957398_960_720.jpg' alt='' />
+                    {{/if}}               
+                {{/unless}}
+            {{/each}}
         </div>
         <div class='event-info'>
             <h5 class='event-name'>{{name}}</h5>
             <p class='event-date'>{{dates.start.localDate}}</p>
             <a href='' class='location-link'>
                 <svg class='icon-location' width='7' height='10'>
-                    <use href='/sprite.svg#icon-location'></use>
+                    <use href='../src/images/sprite.svg#icon-location'></use>
                 </svg>
-                {{place.city.name}}
+                {{#if place.city.name.length}}
+                    {{place.city.name}}
+                {{ else }}
+                    <span class="location-error">Event was canceled</span> 
+                {{/if}}  
             </a>
         </div>
     </article>
