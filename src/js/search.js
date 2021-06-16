@@ -16,9 +16,16 @@ $(document).ready(function () {
 })
 async function getDefaultCountry() {
   const defaultCountry = await apiService.getCountryByLocation();
+  const isIdOnList = countries.find(r => r.id === defaultCountry);
   //selected defaul country in list
-  $("#selectCountry").select2().val(defaultCountry).trigger('change');
-  apiService.fetchEvents();
+  if (isIdOnList) {
+    $("#selectCountry").select2().val(defaultCountry).trigger('change');
+    apiService.fetchEvents();
+    return;
+  }
+    $("#selectCountry").select2().val("GB").trigger('change');
+    apiService.fetchEvents();  
+  
 }
 // listener for select list
 $('#selectCountry').on('select2:select', function (e) {
@@ -44,3 +51,5 @@ function onCountryInput(e) {
 getDefaultCountry();
 
 refs.keywordInput.addEventListener('input', _.debounce(onKeywordInput, 500));
+
+// console.log( countries.find(r => console.log(r.id)))

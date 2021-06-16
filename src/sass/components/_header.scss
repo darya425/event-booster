@@ -1,8 +1,11 @@
 .header {
-  background-repeat: no-repeat;
-  background-position: center;
+  background: {
+    repeat: no-repeat;
+    position: center;
+    size: cover;
+  }
 
-  @media screen and (max-width: $mobile) {
+  @media screen and (max-width: 767px) {
     padding-top: 78px;
     height: 364px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
@@ -13,11 +16,10 @@
       screen and (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
         url(../images/header-img-mobile@2x.jpg);
-      background-size: cover;
     }
   }
 
-  @media screen and (max-width: $tablet) {
+  @media screen and (min-width: 768px) {
     padding-top: 40px;
     height: 364px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
@@ -27,11 +29,10 @@
       screen and (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
         url(../images/header-img-tablet@2x.jpg);
-      background-size: cover;
     }
   }
 
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1280px) {
     height: 446px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
       url(../images/header-img-pc.jpg);
@@ -40,7 +41,6 @@
       screen and (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
         url(../images/header-img-pc@2x.jpg);
-      // background-size: cover;
     }
   }
 }
@@ -54,21 +54,21 @@
 
   text-align: center;
   @media screen and (max-width: $max-mobile) {
-    padding-top: 78px;
-    padding-bottom: 25px;
+    // padding-top: 78px;
+    margin-bottom: 25px;
     font-size: 18px;
     line-height: 1.22;
   }
 
   @media screen and (min-width: $tablet) {
-    padding-top: 40px;
-    padding-bottom: 27px;
+    // padding-top: 40px;
+    margin-bottom: 27px;
     font-size: 30px;
     line-height: 1.23;
   }
 
   @media screen and (min-width: $desktop) {
-    padding-bottom: 52px;
+    margin-bottom: 52px;
     font-size: 50px;
     line-height: 1.22;
   }
@@ -83,9 +83,7 @@
   backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.2);
   color: $input-color;
-  padding-left: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 30px;
   font-family: Montserrat;
   font-weight: normal;
   font-size: 16px;
@@ -103,7 +101,7 @@ input[type='text']::-moz-placeholder {
   font-weight: normal;
 }
 
-.input {
+.search-form {
   @media screen and (max-width: $max-mobile) {
     margin-bottom: 25px;
   }
@@ -130,6 +128,8 @@ input[type='text']::-moz-placeholder {
 }
 
 .img__logo {
+  top: 0;
+  left: 0;
   position: absolute;
   z-index: 1;
 }
@@ -144,25 +144,24 @@ input[type='text']::-moz-placeholder {
     rgba(196, 196, 196, 0) 92.33%
   );
   backdrop-filter: blur(30px);
-  transform: rotate(-90deg);
   @media screen and (max-width: $max-mobile) {
-    width: 180px;
-    height: 213.97px;
-    left: -93px;
-    top: -105px;
+    height: 180px;
+    width: 213.97px;
+    left: -105px;
+    top: -90px;
   }
 
   @media screen and (min-width: $tablet) {
     width: 359px;
     height: 302px;
-    left: -156px;
-    top: -172px;
+    left: -184px;
+    top: -150px;
   }
 
   @media screen and (min-width: $desktop) {
     width: 477px;
     height: 402px;
-    left: -204px;
-    top: -242px;
+    left: -224px;
+    top: -208px;
   }
 }
