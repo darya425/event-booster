@@ -5,14 +5,17 @@ export default class ApiService{
     this.currentPage = 0;
     this.params = {};
   }
-  async getCountryByLocation() {
+async getCountryByLocation() {
     try {
       const response = await fetch('https://ipapi.co/json/');
       const result = await response.json();
       this.country = result.country;
       return result.country;
     } catch (error) {
-    }
+        const DEFAULT_COUNTRY = 'GB';
+        this.country = DEFAULT_COUNTRY;
+        return DEFAULT_COUNTRY;
+      }
   }
   changeSearchOptions() {
     this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
