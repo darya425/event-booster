@@ -1,5 +1,5 @@
 {{#each this}}
-<li class='item' data-id='{{id}}'>
+<li class='item-event' data-id='{{id}}'>
     <article class='card'>
         <div class='card-thumb'>
             {{#each images}}
@@ -14,7 +14,7 @@
         </div>
         <div class='event-info'>
             <h5 class='event-name'>{{name}}</h5>
-            <p class='event-date'>{{dates.start.localDate}}</p>
+            <p class='event-local-date'>{{dates.start.localDate}}</p>
             <a href='' class='location-link'>
                 <svg class='icon-location' width='7' height='10'>
                     <use href='../src/images/sprite.svg#icon-location'></use>

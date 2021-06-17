@@ -25,7 +25,7 @@
   }
 }
 
-.item {
+.item-event {
   position: relative;
   top: 0;
   left: 0;
@@ -130,8 +130,12 @@
 }
 
 .event-name,
-.event-date {
+.event-local-date {
   margin-bottom: 5px;
+}
+
+.event-local-date {
+  color: $subtitle-text-color;
 }
 
 .location-error {
