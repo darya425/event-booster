@@ -1,15 +1,13 @@
 .js-form-country,
 .select2 {
-  width: 270px;
+  width: 270px !important;
   height: 40px;
   border-radius: 20px;
   border-width: 0;
   backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.2);
   color: #e0dbdb;
-  padding-left: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 30px;
   font-family: Montserrat;
   font-weight: normal;
   font-size: 16px;
@@ -18,8 +16,6 @@
 }
 
 .select2 {
-  padding-right: 30px;
-
   .select2-selection {
     height: auto;
     background-color: transparent;

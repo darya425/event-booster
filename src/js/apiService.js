@@ -5,21 +5,27 @@ export default class ApiService{
     this.currentPage = 0;
     this.params = {};
   }
-  async getCountryByLocation() {
+async getCountryByLocation() {
     try {
       const response = await fetch('https://ipapi.co/json/');
       const result = await response.json();
       this.country = result.country;
+      // добавить условие проверки деф страны!!!!!!!
       return result.country;
     } catch (error) {
-    }
+        const DEFAULT_COUNTRY = 'GB';
+        this.country = DEFAULT_COUNTRY;
+        return DEFAULT_COUNTRY;
+      }
   }
   changeSearchOptions() {
-    this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
-    this.params.size = '20';
-    this.params.countryCode = this.searchCountry;
-    this.params.page = this.currentPage;
-    this.params.sort = 'date,asc';
+    this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';;
+    if (this.country !== '') {
+      this.params.countryCode = this.searchCountry;
+      this.params.sort = 'date,asc';
+      this.params.size = '20';
+      this.params.page = this.currentPage
+    }
     if (this.keyword !== '') {
       this.params.keyword = this.searchKeyword;
     }
