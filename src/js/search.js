@@ -20,32 +20,34 @@ async function getDefaultCountry() {
   //selected defaul country in list
   if (isIdOnList) {
     $("#selectCountry").select2().val(defaultCountry).trigger('change');
-    apiService.fetchEvents();
+    const result = await apiService.fetchEvents();
+    await getEvents(result);
     return;
   }
     $("#selectCountry").select2().val("GB").trigger('change');
-    apiService.fetchEvents();  
+    const result = await apiService.fetchEvents();
+    await getEvents(result);
   
 }
 // listener for select list
 $('#selectCountry').on('select2:select', function (e) {
-  apiService.country = e.params.data.id;
-  apiService.fetchEvents();
+  onSelectCountry(e)
 });
 
-function onKeywordInput(e) {
+async function onSelectCountry(e) {
+  apiService.country = e.params.data.id;
+  const result = await apiService.fetchEvents();
+  await getEvents(result);
+}
+
+async function onKeywordInput(e) {
   e.preventDefault();
   const inputValue = e.target.value;
   apiService.keyword = inputValue;
-  getEvents();
-}
-
-function onCountryInput(e) {
-  e.preventDefault();
-  const inputValue = e.target.value;
-  refs.countryInput.dataset.value = inputValue;
-  apiService.country = inputValue;
-  getEvents();
+  apiService.page = 5;
+  console.log(apiService.page);
+  const result = await apiService.fetchEvents();
+  await getEvents(result);
 }
 
 getDefaultCountry();

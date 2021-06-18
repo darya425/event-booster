@@ -19,13 +19,13 @@ async getCountryByLocation() {
       }
   }
   changeSearchOptions() {
-    this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';;
-    if (this.country !== '') {
+    this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
+    // if (this.country !== '') {
       this.params.countryCode = this.searchCountry;
       this.params.sort = 'date,asc';
       this.params.size = '20';
-      this.params.page = this.currentPage
-    }
+      this.params.page = this.currentPage;
+    // }
     if (this.keyword !== '') {
       this.params.keyword = this.searchKeyword;
     }
@@ -56,6 +56,9 @@ async getCountryByLocation() {
   }
   get country() {
     return this.searchCountry;
+  }
+  get page() {
+    return this.currentPage;
   }
   set keyword(newKeyword) {
     this.searchKeyword = newKeyword;
