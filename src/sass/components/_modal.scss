@@ -9,12 +9,11 @@
   overflow-y: scroll;
   transition: opacity 250ms $timing-function;
 }
-// Uncomment when js is ready
 
-// .backdrop.is-hidden {
-//   opacity: 0;
-//   pointer-events: none;
-// }
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
 .modal {
   background-color: $modal-background;
@@ -153,14 +152,17 @@
     margin-bottom: 20px;
   }
 }
+.event-website {
+  font-size: 12px;
+}
 
-.event-date,
+.event-date-modal,
 .event-location {
   display: flex;
   flex-direction: column;
 }
 
-.date,
+.date-modal,
 .country-city {
   margin-bottom: 3px;
 
