@@ -1,0 +1,64 @@
+{{#each images}}
+    {{#unless fallback}}
+        {{#if url.length}}
+            <img class="preview-circle" src='{{url}}' alt='' width="132"/>
+            {{ else }}
+            <img class='preview-circle' src='../images/no-image-available.png'
+                alt='' />
+        {{/if}}
+    {{/unless}}
+{{/each}}
+
+<div class="foto-info">
+    {{#each images}}
+        {{#unless fallback}}
+            {{#if url.length}}
+                <img class="event-pic-big" src='{{url}}' alt='' width="360" />
+                {{ else }}
+                <img class='event-pic-big' src='../images/no-image-available.png'
+                alt='' />
+            {{/if}}
+        {{/unless}}
+    {{/each}}
+
+    <div class="event-info">
+        <h3 class="event-title">INFO</h3>
+        <p class="event-description text-info">{{name}}</p>
+        <a href="{{url}}" class="event-description text-info">Event official web-site =></a>
+
+        <h3 class="event-title">WHEN</h3>
+        <p class="event-date-modal text-info"><span class="date-modal">{{dates.start.localDate}}</span><span class="time-modal">{{dates.start.localTime}}</span></p>
+        
+        <h3 class="event-title">WHERE</h3>
+        {{#if place.length}}
+            <p class="event-location text-info"><span class="country-city">{{place.country.name}}, {{place.city.name}}</span><span
+                class="venue">{{place.address.line1}}</span></p>
+        {{ else }}
+            <a href="{{url}}" class="event-website">=> Please, visit the official web-site of the event for more information</a>
+        {{/if}}
+
+        <h3 class="event-title">WHO</h3>
+        <p class="author-name text-info">{{name}}</p>
+
+        <h3 class="event-title">PRICES</h3>
+        <ul class="pricelist">
+            {{#if priceRanges.length}}
+                <li class="item">
+                    <div class="price-line">
+                        <svg width="30" height="20" class="barcode-icon">
+                            <use href="../src/images/sprite.svg#icon-barcode-icon"></use>
+                        </svg>
+                        <p class="standard-price text-info">{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max }} {{priceRanges.0.currency}}</p>
+                    </div>
+                    <button class="button btn-buy-standart tickets">BUY TICKETS</button>
+                </li>
+            {{ else }}
+                <a href="{{url}}" class="event-website">=> Please, visit the official web-site of the event for more information</a>
+            {{/if}}
+        </ul>
+
+    </div>
+
+</div>
+
+<button class="more-author-events">MORE FROM THIS AUTHOR</button>
