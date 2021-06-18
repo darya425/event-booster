@@ -17,6 +17,7 @@
   }
 
   @media screen and (max-width: $tablet) {
+    padding-top: 78px;
     height: 364px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
       url(../images/header-img-tablet.jpg);
@@ -30,6 +31,7 @@
   }
 
   @media screen and (min-width: 769px) {
+    padding-top: 40px;
     height: 446px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
       url(../images/header-img-pc.jpg);
@@ -52,21 +54,19 @@
 
   text-align: center;
   @media screen and (max-width: $max-mobile) {
-    padding-top: 78px;
-    padding-bottom: 25px;
+    margin-bottom: 25px;
     font-size: 18px;
     line-height: 1.22;
   }
 
   @media screen and (min-width: $tablet) {
-    padding-top: 40px;
-    padding-bottom: 27px;
+    margin-bottom: 27px;
     font-size: 30px;
     line-height: 1.23;
   }
 
   @media screen and (min-width: $desktop) {
-    padding-bottom: 52px;
+    margin-bottom: 52px;
     font-size: 50px;
     line-height: 1.22;
   }
@@ -128,13 +128,15 @@ input[type='text']::-moz-placeholder {
 }
 
 .img__logo {
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
 .bcg-logo {
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
 
   background: linear-gradient(
     136.07deg,
@@ -142,25 +144,24 @@ input[type='text']::-moz-placeholder {
     rgba(196, 196, 196, 0) 92.33%
   );
   backdrop-filter: blur(30px);
-  transform: rotate(-90deg);
   @media screen and (max-width: $max-mobile) {
-    width: 180px;
-    height: 213.97px;
-    left: -93px;
-    top: -105px;
+    height: 180px;
+    width: 213.97px;
+    top: -90px;
+    left: -105px;
   }
 
   @media screen and (min-width: $tablet) {
     width: 359px;
     height: 302px;
-    left: -156px;
-    top: -172px;
+    left: -184px;
+    top: -150px;
   }
 
   @media screen and (min-width: $desktop) {
     width: 477px;
     height: 402px;
-    left: -204px;
-    top: -242px;
+    left: -224px;
+    top: -208px;
   }
 }
