@@ -5,6 +5,7 @@ const _ = require('lodash');
 const apiService = new ApiService;
 const refs = {
   keywordInput: document.querySelector('.js-form-keyword'),
+  gallery: document.querySelector('.card-set'),
 }
 
 //initialization select2 list of country
@@ -14,6 +15,7 @@ $(document).ready(function () {
     data: countries,
   });
 })
+
 async function getDefaultCountry() {
   const defaultCountry = await apiService.getCountryByLocation();
   const isIdOnList = countries.find(r => r.id === defaultCountry);
@@ -27,14 +29,15 @@ async function getDefaultCountry() {
     $("#selectCountry").select2().val("GB").trigger('change');
     const result = await apiService.fetchEvents();
     await getEvents(result);
-  
 }
+
 // listener for select list
 $('#selectCountry').on('select2:select', function (e) {
   onSelectCountry(e)
 });
 
 async function onSelectCountry(e) {
+  clearMarkup();
   apiService.country = e.params.data.id;
   const result = await apiService.fetchEvents();
   await getEvents(result);
@@ -44,10 +47,13 @@ async function onKeywordInput(e) {
   e.preventDefault();
   const inputValue = e.target.value;
   apiService.keyword = inputValue;
-  apiService.page = 5;
-  console.log(apiService.page);
+  clearMarkup();
   const result = await apiService.fetchEvents();
   await getEvents(result);
+}
+
+function clearMarkup() {
+  refs.gallery.innerHTML = '';
 }
 
 getDefaultCountry();
