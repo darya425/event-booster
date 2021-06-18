@@ -36,8 +36,9 @@
   }
 
   @media screen and (min-width: $desktop) {
+    top: 500px;
     width: 930px;
-    height: 1023px;
+    height: 900px;
     padding: 30px 30px 60px 30px;
   }
 
@@ -101,6 +102,7 @@
 
 .event-pic-big {
   display: none;
+  object-fit: cover;
 
   @media screen and (min-width: $tablet) {
     display: block;
@@ -111,7 +113,7 @@
 
   @media screen and (min-width: $desktop) {
     width: 360px;
-    height: 641px;
+    // height: 641px;
     margin-right: 60px;
   }
 }
@@ -126,8 +128,20 @@
   }
 }
 
-.event-info .event-title {
+.event-info {
   font-family: $font-montserrat;
+  text-align: center;
+
+  .list-item {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
+}
+
+.event-title-modal {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
@@ -141,7 +155,6 @@
 }
 
 .text-info {
-  font-family: $font-montserrat;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.22;
@@ -150,15 +163,11 @@
 
   @media screen and (min-width: $desktop) {
     font-size: 18px;
-    margin-bottom: 20px;
   }
 }
-.event-website {
-  font-size: 12px;
-}
 
-.event-date-modal,
-.event-location {
+.date-time-modal,
+.event-location-modal {
   display: flex;
   flex-direction: column;
 }
@@ -171,18 +180,17 @@
     margin-bottom: 5px;
   }
 }
-.pricelist .item:first-child {
-  margin-bottom: 20px;
 
-  @media screen and (min-width: $desktop) {
-    margin-bottom: 30px;
-  }
-}
-
-.modal .button {
+.buy-ticket-button {
+  display: block;
+  text-align: center;
   width: 145px;
   height: 40px;
-  background: $modal-button;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  background-color: $modal-button;
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -200,6 +208,11 @@
     color: $modal-button;
     background-color: $modal-background;
     border: 1px solid $modal-button;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 
