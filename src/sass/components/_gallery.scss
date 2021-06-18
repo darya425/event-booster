@@ -1,6 +1,7 @@
 .gallery {
   position: relative;
   top: -46px;
+  margin-bottom: 94px;
 }
 
 .card-set {
@@ -47,11 +48,6 @@
     margin-left: 70px;
     flex-basis: calc(100% / 4 - 70px);
   }
-}
-
-.card {
-  text-align: center;
-  border-radius: 50px 0 0 0;
 
   &::before {
     content: '';
@@ -74,6 +70,11 @@
       right: -14px;
     }
   }
+}
+
+.card {
+  text-align: center;
+  border-radius: 50px 0 0 0;
 }
 
 .card-thumb {
@@ -105,7 +106,7 @@
       @include font-data(14px, $title-text-color, 700, 1.2);
     }
 
-    .event-date {
+    .event-local-date {
       @include font-data(14px, $subtitle-text-color, 400, 1.2);
     }
 
@@ -119,7 +120,7 @@
       @include font-data(16px, $title-text-color, 700, 1.25);
     }
 
-    .event-date {
+    .event-local-date {
       @include font-data(16px, $subtitle-text-color, 400, 1.25);
     }
 
@@ -134,54 +135,53 @@
   margin-bottom: 5px;
 }
 
-.event-local-date {
-  color: $subtitle-text-color;
-}
-
 .location-error {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 // pagination
-.pagination-container {
-  display: flex;
-  justify-content: center;
-}
+// .pagination-container {
+//   display: flex;
+//   justify-content: center;
+// }
 
-.pagination {
+.tui-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.pagination-button {
-  background-color: inherit;
-  color: $subtitle-text-color;
-  border-color: transparent;
-  cursor: pointer;
-}
+// .pagination-button {
+//   background-color: inherit;
+//   color: $subtitle-text-color;
+//   border-color: transparent;
+//   cursor: pointer;
+// }
 
-.pagination a,
-.pagination-button {
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 12px;
+  margin-left: 5px;
+  height: 30px;
+  width: 30px;
+
   color: $subtitle-text-color;
 
   &:focus,
   &:hover {
     color: $title-text-color;
   }
-}
 
-.page-number {
-  padding: 5px 12px;
-  margin-left: 5px;
-
-  &.active-page {
+  &.tui-is-selected {
     border-style: solid;
     border: 1px solid $title-text-color;
+    color: $title-text-color;
     border-radius: 10px 0px;
 
-    & .pag-link {
-      color: $title-text-color;
-    }
+    // & .pag-link {
+    //   color: $title-text-color;
+    // }
   }
 }
