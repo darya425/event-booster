@@ -9,8 +9,9 @@ const templateContainerRef = document.querySelector('.modal-template');
 galleryContainerRef.addEventListener('click', onItemEventClick);         // delegation
 
 async function onItemEventClick(event) {
+    console.log(event.target);
     
-    if (!event.target.classList.contains('card')) {
+    if (!event.target.classList.contains('item-event')) {
         return;
     }
 
