@@ -136,49 +136,52 @@
 }
 
 .location-error {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 // pagination
-.pagination-container {
-  display: flex;
-  justify-content: center;
-}
+// .pagination-container {
+//   display: flex;
+//   justify-content: center;
+// }
 
-.pagination {
+.tui-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.pagination-button {
-  background-color: inherit;
-  color: $subtitle-text-color;
-  border-color: transparent;
-  cursor: pointer;
-}
+// .pagination-button {
+//   background-color: inherit;
+//   color: $subtitle-text-color;
+//   border-color: transparent;
+//   cursor: pointer;
+// }
 
-.pagination a,
-.pagination-button {
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 12px;
+  margin-left: 5px;
+  height: 30px;
+  width: 30px;
+
   color: $subtitle-text-color;
 
   &:focus,
   &:hover {
     color: $title-text-color;
   }
-}
 
-.page-number {
-  padding: 5px 12px;
-  margin-left: 5px;
-
-  &.active-page {
+  &.tui-is-selected {
     border-style: solid;
     border: 1px solid $title-text-color;
+    color: $title-text-color;
     border-radius: 10px 0px;
 
-    & .pag-link {
-      color: $title-text-color;
-    }
+    // & .pag-link {
+    //   color: $title-text-color;
+    // }
   }
 }
