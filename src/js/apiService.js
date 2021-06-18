@@ -45,6 +45,20 @@ export default class ApiService{
       //
     }
   }
+
+  async fetchEventById(id) {
+      const url = `https://app.ticketmaster.com/discovery/v2/events/${id}.json`;
+      const options = this.changeSearchOptions();
+    
+      try {
+          const response = await fetch(url+options);
+          const result = await response.json();
+          return result;
+      } catch (error) {
+          
+      }
+  }
+
   get keyword() {
     return this.searchKeyword;
   }
