@@ -7,6 +7,7 @@ const apiService = new ApiService;
 const refs = {
   keywordInput: document.querySelector('.js-form-keyword'),
   gallery: document.querySelector('.card-set'),
+  galleryText: document.querySelector('.default-info'),
 }
 
 //initialization select2 list of country
@@ -57,13 +58,14 @@ async function onKeywordInput(e) {
   apiService.keyword = inputValue;
   clearMarkup();
   const result = await apiService.fetchEvents();
-   await getPage(result);
+  await getPage(result);
   await getEvents(result);
  
 }
 
 function clearMarkup() {
   refs.gallery.innerHTML = '';
+  refs.galleryText.innerHTML = '';
 }
 
 getDefaultCountry();
