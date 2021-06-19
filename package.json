@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "handlebars": "^4.7.7",
-    "handlebars-helper-svg": "^2.0.2",
     "lodash": "^4.17.21",
     "tui-pagination": "^3.4.0"
   }
