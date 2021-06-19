@@ -2,12 +2,17 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: 414px 23px;
   width: 100%;
   height: 100%;
   background: rgba(32, 13, 29, 0.6);
   opacity: 1;
   overflow-y: scroll;
   transition: opacity 250ms $timing-function;
+
+  @media screen and (min-width: $tablet) {
+    padding: 161px 87px;
+  }
 }
 // Uncomment when js is ready
 
@@ -158,6 +163,7 @@
 .event-location {
   display: flex;
   flex-direction: column;
+  // color: #0e0e0e;
 }
 
 .date,
