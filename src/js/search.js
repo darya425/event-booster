@@ -25,10 +25,12 @@ async function getDefaultCountry() {
     const result = await apiService.fetchEvents();
     await getEvents(result);
     return;
-  }
-    $("#selectCountry").select2().val("GB").trigger('change');
+  } else {
+    $("#selectCountry").select2().val('GB').trigger('change');
+    apiService.country = 'GB';
     const result = await apiService.fetchEvents();
     await getEvents(result);
+  }
 }
 
 // listener for select list
@@ -59,5 +61,3 @@ function clearMarkup() {
 getDefaultCountry();
 
 refs.keywordInput.addEventListener('input', _.debounce(onKeywordInput, 500));
-
-// console.log( countries.find(r => console.log(r.id)))
