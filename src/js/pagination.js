@@ -6,16 +6,17 @@ const apiService = new ApiService;
 
 const currentPage = apiService.page +1;
 
-export default async function getPage(array) {
+export default async function getPage(obj) {
     try {
         // const result = await apiService.fetchEvents();
-        const totalElements = array.page.totalElements;
+        const totalElements = obj.page.totalElements;
         console.log(totalElements);
         
         pagination.setTotalItems(totalElements);
        
         pagination.movePageTo(currentPage);
-        // getEvents(array);
+
+        // getEvents(result);
         
     } catch (error) {
         console.error(error);
