@@ -1,6 +1,7 @@
 import ApiService from './apiService';
 import getEvents from './get-events';
-import countries from './countriesList.json'
+import countries from './countriesList.json';
+import getPage from './pagination';
 const _ = require('lodash');
 const apiService = new ApiService;
 const refs = {
@@ -23,12 +24,16 @@ async function getDefaultCountry() {
   if (isIdOnList) {
     $("#selectCountry").select2().val(defaultCountry).trigger('change');
     const result = await apiService.fetchEvents();
+    await getPage(result);
     await getEvents(result);
+    
     return;
   }
     $("#selectCountry").select2().val("GB").trigger('change');
-    const result = await apiService.fetchEvents();
-    await getEvents(result);
+  const result = await apiService.fetchEvents();
+  await getPage(result);
+  await getEvents(result);
+  
 }
 
 // listener for select list
@@ -40,7 +45,9 @@ async function onSelectCountry(e) {
   clearMarkup();
   apiService.country = e.params.data.id;
   const result = await apiService.fetchEvents();
+  await getPage(result);
   await getEvents(result);
+  
 }
 
 async function onKeywordInput(e) {
@@ -49,7 +56,9 @@ async function onKeywordInput(e) {
   apiService.keyword = inputValue;
   clearMarkup();
   const result = await apiService.fetchEvents();
+   await getPage(result);
   await getEvents(result);
+ 
 }
 
 function clearMarkup() {

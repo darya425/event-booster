@@ -1,11 +1,32 @@
+// import { get } from 'lodash';
+import ApiService from './apiService';
+// import getEvents from './get-events';
 const Pagination = require('tui-pagination');
-// import 'tui-pagination/dist/tui-pagination.css';
+const apiService = new ApiService;
+
+const currentPage = apiService.page +1;
+
+export default async function getPage(array) {
+    try {
+        // const result = await apiService.fetchEvents();
+        const totalElements = array.page.totalElements;
+        console.log(totalElements);
+        
+        pagination.setTotalItems(totalElements);
+       
+        pagination.movePageTo(currentPage);
+        // getEvents(array);
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 const options = { 
-     totalItems: 500,
-     itemsPerPage: 10,
+     totalItems: 100,
+     itemsPerPage: 20,
      visiblePages: 7,
-     page: 1,
+     page: currentPage,
      centerAlign: false,
      firstItemClassName: 'tui-first-child',
      lastItemClassName: 'tui-last-child',
@@ -26,6 +47,18 @@ const options = {
              '</a>'
      }
 };
-var pagination = new Pagination('pagination', options);
+
+const pagination = new Pagination('pagination', options);
+
+
+// function renderGallery(array) {
+//     if (currentPage) {
+//         getEvents(array);
+//     }
+
+// }
+
+
+console.log(pagination);
 
 
