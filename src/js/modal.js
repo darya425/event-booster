@@ -1,15 +1,13 @@
 import modalWindowTpl from '../templates/modal-window.hbs';
 import ApiService from './apiService';
-// import * as basicLightbox from 'basiclightbox';
-// import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
+import * as basicLightbox from '../../node_modules/basiclightbox/dist/basicLightbox.min';
+import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 
 const apiService = new ApiService;
 const galleryContainerRef = document.querySelector('.gallery');
-const backdropRef = document.querySelector('.backdrop');
-const templateContainerRef = document.querySelector('.modal-template');
 
-galleryContainerRef.addEventListener('click', onItemEventClick);         // delegation
+galleryContainerRef.addEventListener('click', onItemEventClick);           // delegation
 
 async function onItemEventClick(event) {
     console.log(event.target);
@@ -18,34 +16,28 @@ async function onItemEventClick(event) {
         return;
     }
 
-    backdropRef.classList.remove('is-hidden');                           // opening modal
-    const closeModalBtn = document.querySelector('.close-icon');
-    closeModalBtn.addEventListener('click', onCloseModal);               // closing modal
-
-    const eventId = event.target.dataset.id;                             // getting event id
+    const eventId = event.target.dataset.id;                                // getting event id
     console.log(eventId);
 
-    const eventInfo = await apiService.fetchEventById(eventId);
-    console.log(eventInfo);                                              // getting event by id
+    const eventInfo = await apiService.fetchEventById(eventId);             // getting event info by id
+    console.log(eventInfo);                                                 
     eventInfo.images = [eventInfo.images.find(image => !image.fallback)]
     eventInfo.dates.start.localTime = eventInfo.dates.start.localTime ? eventInfo.dates.start.localTime.substring(0, 5):'';
-    // event.description = event.description.substring(0, 100) + "...";
-    renderModalWindow(eventInfo);                                        // rendering modal window
+
+    const markup = modalWindowTpl(eventInfo);
+    const instance = basicLightbox.create(markup,                           // creating lightbox
+        {
+            onShow: () => document.body.style.overflow = 'hidden',          // disabling body scroll
+            onClose: () => document.body.style.overflow = 'scroll'          // enabling body scroll
+        });
+    instance.show();                               
+    
+    const closeModalBtn = document.querySelector('.close-window');          // closing modal on cross-icon click
+    closeModalBtn.addEventListener('click', instance.close);
+
+    window.addEventListener('keydown', (evt) => {                           // closing modal on escape key press
+        if (evt.code === "Escape") {
+            instance.close()
+        }
+    });
 }
-
-function onCloseModal() {
-    backdropRef.classList.add('is-hidden');
-    templateContainerRef.innerHTML = '';
-}
-
-function renderModalWindow(event) {
-    console.log('ev: ', event);
-    const markup = modalWindowTpl(event);
-    templateContainerRef.innerHTML = markup;
-}
-
-// const instance = basicLightbox.create(
-// 	document.querySelector('.modalTempl')
-// )
-
-// instance.show();
