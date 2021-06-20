@@ -25,7 +25,7 @@ async function onItemEventClick(event) {
     const eventInfo = await apiService.fetchEventById(eventId);
     console.log(eventInfo);                                              // getting event by id
     eventInfo.images = [eventInfo.images.find(image => !image.fallback)]
-    eventInfo.dates.start.localTime = eventInfo.dates.start.localTime.substring(0, 5);
+    eventInfo.dates.start.localTime = eventInfo.dates.start.localTime.substring(0,5);
     // event.description = event.description.substring(0, 100) + "...";
     renderModalWindow(eventInfo);                                        // rendering modal window
 }
