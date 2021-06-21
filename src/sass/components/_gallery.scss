@@ -97,7 +97,7 @@
   }
 }
 
-.event-info {
+.event-info-thumb {
   padding-top: 5px;
   font-family: $font-montserrat;
 
@@ -133,10 +133,6 @@
 .event-name,
 .event-local-date {
   margin-bottom: 5px;
-}
-
-.location-error {
-  color: rgb(255, 0, 0);
 }
 
 // pagination

@@ -1,3 +1,8 @@
+// import getEvents from './get-events';
+import cardTemplate from '../templates/cards.hbs';
+const gallery = document.querySelector('.card-set');
+const paginationRef = document.querySelector('.tui-pagination');
+
 export default class ApiService{
   constructor() {
     this.searchKeyword = '';
@@ -45,13 +50,29 @@ async getCountryByLocation() {
     try {
       const response = await fetch(BASE_URL+options);
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       return result;
     } catch (error) {
       //
     }
   }
-
+  async fetchEventByPage(page, country) {
+    const apiKey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
+    const sort = 'date,asc';
+      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=${country}&sort=${sort}&size=20&page=${page}`;
+  
+      try {
+          const response = await fetch(url);
+        const result = await response.json();
+        
+        console.log(result);
+      this.getEvents(result._embedded.events);
+        // return result._embedded.events;
+        
+      } catch (error) {
+          
+      }
+  }
   async fetchEventById(id) {
       const url = `https://app.ticketmaster.com/discovery/v2/events/${id}.json`;
       const options = this.changeSearchOptions();
@@ -65,6 +86,13 @@ async getCountryByLocation() {
       }
   }
 
+  // incrementPage(page) {
+  //   this.page = page;
+  // }
+  // resetPage() {
+  //   this.page = 0;
+  // }
+  
   get keyword() {
     return this.searchKeyword;
   }
@@ -83,4 +111,46 @@ async getCountryByLocation() {
   set page(newPage) {
     this.currentPage = newPage - 1;
   }
+
+
+async getEvents(eventsArray) {
+
+  try {
+    // if (!obj._embedded) {
+
+    //   galleryText.insertAdjacentHTML('afterbegin', '<span class="text">Sorry, no events on your request...:(</span>');
+      
+    // } else {
+    // const eventsArray = await apiService.fetchEventByPage(page, country);
+      // console.log(eventsArray);
+
+     await eventsArray.forEach(event => {
+        event.images = [event.images.find(image => !image.fallback)]
+     });
+    
+    gallery.innerHTML = '';
+    
+    
+      this.createCardsMarkup(eventsArray);
+
+    // }
+
+  } catch (error) {
+    paginationRef.innerHTML = '';
+    
+    
+    galleryText.insertAdjacentHTML('afterbegin', '<span class="text">Sorry, no events on your request &#9924</span>');
+    console.log(error);
+    
+  }
 }
+
+createCardsMarkup(events) {
+  gallery.innerHTML = cardTemplate(events);
+}
+
+
+
+
+}
+
