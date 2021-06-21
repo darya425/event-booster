@@ -5,7 +5,7 @@
             {{#each images}}
                 {{#unless fallback}}
                     {{#if url.length}}
-                         <img class='card-image' loading='lazy' src='{{url}}' alt='' />
+                         <img class='card-image' data-id='{{id}}' loading='lazy' src='{{url}}' alt='' />
                     {{ else }}
                         <img class='card-image' loading='lazy' src='https://cdn.pixabay.com/photo/2021/01/28/08/51/girl-5957398_960_720.jpg' alt='' />
                     {{/if}}               
@@ -13,7 +13,7 @@
             {{/each}}
         </div>
         <div class='event-info-thumb'>
-            <h5 class='event-name'>{{name}}</h5>
+            <h5 class='event-name' data-id='{{id}}'>{{name}}</h5>
             <p class='event-local-date'>{{dates.start.localDate}}</p>
             <p class='location-link'>
                 <svg class='icon-location' width='7' height='10'>
