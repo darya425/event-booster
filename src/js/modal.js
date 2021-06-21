@@ -5,14 +5,25 @@ import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 
 const apiService = new ApiService;
-const galleryContainerRef = document.querySelector('.gallery');
+// const galleryContainerRef = document.querySelector('.gallery');
+// console.log(galleryContainerRef);
+const cardSetRef = document.querySelector('.card-set');
+console.log(cardSetRef);
 
-galleryContainerRef.addEventListener('click', onItemEventClick);           // delegation
+const cardImageRef = document.querySelector('.card-image');
+console.log(cardImageRef);
+
+cardSetRef.addEventListener('click', onItemEventClick);           // delegation
 
 async function onItemEventClick(event) {
     console.log(event.target);
+    console.log(event.currentTarget);
     
-    if (!event.target.classList.contains('item-event')) {
+    // if (!event.target.classList.contains('item-event')) {
+    //     return;
+    // }
+
+    if (event.target === event.currentTarget) {
         return;
     }
 
@@ -23,7 +34,7 @@ async function onItemEventClick(event) {
     console.log(eventInfo);                                                 
     eventInfo.images = [eventInfo.images.find(image => !image.fallback)]
     eventInfo.dates.start.localTime = eventInfo.dates.start.localTime ? eventInfo.dates.start.localTime.substring(0, 5):'';
-
+    
     const markup = modalWindowTpl(eventInfo);
     const instance = basicLightbox.create(markup,                           // creating lightbox
         {
