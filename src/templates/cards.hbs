@@ -12,19 +12,19 @@
                 {{/unless}}
             {{/each}}
         </div>
-        <div class='event-info'>
+        <div class='event-info-thumb'>
             <h5 class='event-name'>{{name}}</h5>
             <p class='event-local-date'>{{dates.start.localDate}}</p>
-            <a href='' class='location-link'>
+            <p class='location-link'>
                 <svg class='icon-location' width='7' height='10'>
                     <use href='../src/images/sprite.svg#icon-location'></use>
                 </svg>
-                {{#if place.city.name.length}}
-                    {{place.city.name}}
+                {{#if _embedded.venues.[0].city.name.length}}
+                    {{_embedded.venues.[0].city.name}}
                 {{ else }}
-                    <span class="location-error">Event was canceled</span> 
+                    <span class="location-error">Check the web-site</span> 
                 {{/if}}  
-            </a>
+            </p>
         </div>
     </article>
 </li>
