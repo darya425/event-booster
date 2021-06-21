@@ -1,3 +1,10 @@
+<div class="modal">
+    <button class="close-window">X
+        {{!-- <svg width="25" height="25" class="close-icon">
+            <use href="../src/images/sprite.svg#icon-cross-icon"></use>
+        </svg> --}}
+    </button>
+
 {{#each images}}
     {{#unless fallback}}
         {{#if url.length}}
@@ -68,6 +75,6 @@
     </ul>
 </div>
 <button class="more-author-events">MORE FROM THIS AUTHOR</button>
-
+</div>
 
 {{!-- <button class="buy-ticket-button">BUY TICKETS</button> --}}
