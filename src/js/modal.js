@@ -24,13 +24,18 @@ async function onItemEventClick(event) {
     eventInfo.images = [eventInfo.images.find(image => !image.fallback)]
     eventInfo.dates.start.localTime = eventInfo.dates.start.localTime ? eventInfo.dates.start.localTime.substring(0, 5):'';
 
+
     const markup = modalWindowTpl(eventInfo);
     const instance = basicLightbox.create(markup,                           // creating lightbox
         {
             onShow: () => document.body.style.overflow = 'hidden',          // disabling body scroll
             onClose: () => document.body.style.overflow = 'scroll'          // enabling body scroll
         });
-    instance.show();                               
+    instance.show();    
+    
+    const btnShowMore = document.querySelector('.more-author-events');
+    btnShowMore.addEventListener('click', onBtnMoreClick);
+
     
     const closeModalBtn = document.querySelector('.close-window');          // closing modal on cross-icon click
     closeModalBtn.addEventListener('click', instance.close);
@@ -40,4 +45,10 @@ async function onItemEventClick(event) {
             instance.close()
         }
     });
+}
+
+function onBtnMoreClick() {
+    const moreAuthorRef = document.querySelector('.info-more');
+
+    moreAuthorRef.classList.remove('is-hidden');
 }
