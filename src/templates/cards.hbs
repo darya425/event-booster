@@ -5,24 +5,21 @@
             {{#each images}}
                 {{#unless fallback}}
                     {{#if url.length}}
-                         <img class='card-image' loading='lazy' src='{{url}}' alt='' />
+                         <img class='card-image' data-id='{{id}}' loading='lazy' src='{{url}}' alt='' />
                     {{ else }}
-                        <img class='card-image' loading='lazy' src='https://cdn.pixabay.com/photo/2021/01/28/08/51/girl-5957398_960_720.jpg' alt='' />
+                        <img class='card-image' loading='lazy' src='https://s1.ticketm.net/dam/c/8cf/a6653880-7899-4f67-8067-1f95f4d158cf_124761_ARTIST_PAGE_3_2.jpg' alt='' />
                     {{/if}}               
                 {{/unless}}
             {{/each}}
         </div>
         <div class='event-info-thumb'>
-            <h5 class='event-name'>{{name}}</h5>
+            <h5 class='event-name' data-id='{{id}}'>{{name}}</h5>
             <p class='event-local-date'>{{dates.start.localDate}}</p>
             <p class='location-link'>
-                <svg class='icon-location' width='7' height='10'>
-                    <use href='../src/images/sprite.svg#icon-location'></use>
-                </svg>
                 {{#if _embedded.venues.[0].city.name.length}}
                     {{_embedded.venues.[0].city.name}}
                 {{ else }}
-                    <span class="location-error">Check the web-site</span> 
+                    <span class="location-error">Check location on the website</span> 
                 {{/if}}  
             </p>
         </div>

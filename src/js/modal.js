@@ -5,14 +5,25 @@ import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 
 const apiService = new ApiService;
-const galleryContainerRef = document.querySelector('.gallery');
+// const galleryContainerRef = document.querySelector('.gallery');
+// console.log(galleryContainerRef);
+const cardSetRef = document.querySelector('.card-set');
+console.log(cardSetRef);
 
-galleryContainerRef.addEventListener('click', onItemEventClick);           // delegation
+const cardImageRef = document.querySelector('.card-image');
+console.log(cardImageRef);
+
+cardSetRef.addEventListener('click', onItemEventClick);           // delegation
 
 async function onItemEventClick(event) {
     console.log(event.target);
+    console.log(event.currentTarget);
     
-    if (!event.target.classList.contains('item-event')) {
+    // if (!event.target.classList.contains('item-event')) {
+    //     return;
+    // }
+
+    if (event.target === event.currentTarget) {
         return;
     }
 
@@ -27,10 +38,14 @@ async function onItemEventClick(event) {
     const markup = modalWindowTpl(eventInfo);
     const instance = basicLightbox.create(markup,                           // creating lightbox
         {
-            onShow: () => document.body.style.overflow = 'hidden',          // disabling body scroll
-            onClose: () => document.body.style.overflow = 'scroll'          // enabling body scroll
+            onShow: () => document.body.style.overflowY = 'hidden',          // disabling body scroll
+            onClose: () => document.body.style.overflowY = 'scroll'          // enabling body scroll
         });
-    instance.show();                               
+    instance.show();    
+    
+    const btnShowMore = document.querySelector('.more-author-events');
+    btnShowMore.addEventListener('click', onBtnMoreClick);
+
     
     const closeModalBtn = document.querySelector('.close-window');          // closing modal on cross-icon click
     closeModalBtn.addEventListener('click', instance.close);
@@ -40,4 +55,10 @@ async function onItemEventClick(event) {
             instance.close()
         }
     });
+}
+
+function onBtnMoreClick() {
+    const moreAuthorRef = document.querySelector('.info-more');
+
+    moreAuthorRef.classList.remove('is-hidden');
 }
