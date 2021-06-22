@@ -240,3 +240,11 @@
     background-color: $title-text-color;
   }
 }
+.info-more {
+  opacity: 1;
+  }
+  
+  .info-more.is-hidden {
+    opacity: 0;
+  }
+  
