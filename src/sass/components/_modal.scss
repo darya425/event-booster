@@ -16,6 +16,7 @@
   border-radius: 150px 0px;
 
   @media screen and (min-width: $tablet) {
+    top: 150px;
     width: 595px;
     height: 831px;
     padding: 25px 25px 55px 50px;
@@ -23,6 +24,7 @@
   }
 
   @media screen and (min-width: $desktop) {
+    top: 10px;
     width: 930px;
     height: 900px;
     padding: 30px 30px 60px 30px;
