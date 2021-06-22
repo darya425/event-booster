@@ -38,8 +38,8 @@ async function onItemEventClick(event) {
     const markup = modalWindowTpl(eventInfo);
     const instance = basicLightbox.create(markup,                           // creating lightbox
         {
-            onShow: () => document.body.style.overflow = 'hidden',          // disabling body scroll
-            onClose: () => document.body.style.overflow = 'scroll'          // enabling body scroll
+            onShow: () => document.body.style.overflowY = 'hidden',          // disabling body scroll
+            onClose: () => document.body.style.overflowY = 'scroll'          // enabling body scroll
         });
     instance.show();    
     
