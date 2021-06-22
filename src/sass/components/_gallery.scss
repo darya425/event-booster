@@ -75,6 +75,13 @@
 .card {
   text-align: center;
   border-radius: 50px 0 0 0;
+  // transition: all 0.5s;
+  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // &:focus,
+  // &:hover {
+  //   transform: scale(1.15);
+  // }
 }
 
 .card-thumb {
@@ -135,24 +142,15 @@
   margin-bottom: 5px;
 }
 
-// pagination
-// .pagination-container {
-//   display: flex;
-//   justify-content: center;
-// }
+.location-link::before {
+  content: url('../images/location.svg');
+}
 
 .tui-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-// .pagination-button {
-//   background-color: inherit;
-//   color: $subtitle-text-color;
-//   border-color: transparent;
-//   cursor: pointer;
-// }
 
 .tui-page-btn {
   display: flex;
@@ -170,16 +168,27 @@
     color: $title-text-color;
   }
 
-  &.tui-is-selected {
+  &.active {
     border-style: solid;
     border: 1px solid $title-text-color;
     color: $title-text-color;
     border-radius: 10px 0px;
-
-    // & .pag-link {
-    //   color: $title-text-color;
-    // }
   }
+}
+
+.tui-first:before {
+  content: '\00ab';
+  color: inherit;
+}
+
+.tui-last:after {
+  content: '\00BB';
+  color: inherit;
+}
+
+.tui-next,
+.tui-prev {
+  display: none;
 }
 
 .default-info {
