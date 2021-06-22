@@ -1,16 +1,9 @@
 import ApiService from './apiService';
 const Pagination = require('tui-pagination');
-import getEvents from './get-events';
-import getEventsByPage from './getEventsByPage';
 
 const apiService = new ApiService;
 
-// const currentPage = apiService.page + 1;
 export default function getPage(totalItems, country) {
-  // const totalElements = apiService.page.totalElements;
-  // console.log(totalElements);
-  // pagination.setTotalItems(totalElements);
-  // pagination.setTotalItems(totalItems);
   const pagination = new Pagination('pagination', {
     totalItems,
     itemsPerPage: 20,
@@ -29,6 +22,7 @@ export default function getPage(totalItems, country) {
         '</a>',
     },
   });
+
   pagination.on('afterMove', function (eventData) {
     window.scrollTo({
       top: 150,
@@ -37,6 +31,4 @@ export default function getPage(totalItems, country) {
    
    apiService.fetchEventByPage(eventData.page - 1, country);
   });
-    
-   
 }
