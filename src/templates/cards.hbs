@@ -16,13 +16,10 @@
             <h5 class='event-name' data-id='{{id}}'>{{name}}</h5>
             <p class='event-local-date'>{{dates.start.localDate}}</p>
             <p class='location-link'>
-                <svg class='icon-location' width='7' height='10'>
-                    <use href='../src/images/sprite.svg#icon-location'></use>
-                </svg>
                 {{#if _embedded.venues.[0].city.name.length}}
                     {{_embedded.venues.[0].city.name}}
                 {{ else }}
-                    <span class="location-error">Check the web-site</span> 
+                    <span class="location-error">Check location on the website</span> 
                 {{/if}}  
             </p>
         </div>

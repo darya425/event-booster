@@ -1,5 +1,6 @@
 import ApiService from './apiService';
 const Pagination = require('tui-pagination');
+
 import getEvents from './get-events';
 import getEventsByPage from './getEventsByPage';
 
@@ -11,16 +12,22 @@ export default function getPage(totalItems, country) {
   // console.log(totalElements);
   // pagination.setTotalItems(totalElements);
   // pagination.setTotalItems(totalItems);
+  if (totalItems > 1000) {
+    totalItems = 1000;
+  }
+
+
   const pagination = new Pagination('pagination', {
     totalItems,
     itemsPerPage: 20,
     visiblePages: 5,
+    usageStatistics: false,
     // ЭТО ШАБЛОН РАЗМЕТКИ  
     template: {
-      page: '<a href="#" class="tui-page-btn btn-page1 btn">{{page}}</a>',
+      page: '<a href="#" class="tui-page-btn btn-page btn">{{page}}</a>',
       currentPage:
-        '<a href="#" class="tui-page-btn btn-page1 active btn">{{page}}</a>',
-      moveButton: '<a href ="#" class=" {{type}} custom-class-{{type}}"></a>',
+        '<a href="#" class="tui-page-btn btn-page active btn">{{page}}</a>',
+      moveButton:  '<a href="#" class="tui-page-btn tui-{{type}}"></a>',
       disabledMoveButton:
         '<a href ="#" class="{{type}} custom-class-{{type}}"></a>',
       moreButton:
@@ -29,6 +36,8 @@ export default function getPage(totalItems, country) {
         '</a>',
     },
   });
+
+  
   pagination.on('afterMove', function (eventData) {
     window.scrollTo({
       top: 150,
@@ -37,6 +46,10 @@ export default function getPage(totalItems, country) {
    
    apiService.fetchEventByPage(eventData.page - 1, country);
   });
-    
-   
+ 
 }
+
+
+    
+ 
+  
