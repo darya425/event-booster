@@ -70,6 +70,49 @@
     font-size: 50px;
     line-height: 1.22;
   }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 1px;
+    background: $elements-border-color;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $tablet) {
+      top: 0;
+      bottom: -31px;
+      left: 50%;
+      margin-left: -299px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      bottom: 13px;
+      margin-left: -525px;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 1px;
+    background: $elements-border-color;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $tablet) {
+      top: 0;
+      bottom: 0;
+      right: 50%;
+      margin-right: -299px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-right: -525px;
+    }
+  }
 }
 
 .input,
@@ -131,12 +174,13 @@ input[type='text']::-moz-placeholder {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .bcg-logo {
   border-radius: 50%;
   position: absolute;
+  z-index: 2;
 
   background: linear-gradient(
     136.07deg,
