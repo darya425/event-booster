@@ -2,21 +2,15 @@ import ApiService from './apiService';
 import getEvents from './get-events';
 import countries from './countriesList.json';
 import getPage from './pagination';
-import getEventsByPage from './getEventsByPage';
 
 const _ = require('lodash');
 const apiService = new ApiService;
-
-const currentPage = apiService.page;
-
-
 
 const refs = {
   keywordInput: document.querySelector('.js-form-keyword'),
   gallery: document.querySelector('.card-set'),
   galleryText: document.querySelector('.default-info'),
 }
-
 
 //initialization select2 list of country
 $(document).ready(function () {
@@ -33,12 +27,9 @@ async function getDefaultCountry() {
   if (isIdOnList) {
     $("#selectCountry").select2().val(defaultCountry).trigger('change');
     const result = await apiService.fetchEvents();
-    // const images = await apiService.fetchEventByPage(currentPage, defaultCountry);
-    // console.log(images);
     const totalItems = await result.page.totalElements;
     await getEvents(result);
-    await getPage(totalItems, defaultCountry);
-    
+    getPage(totalItems, defaultCountry);
     
   } else {
     $("#selectCountry").select2().val('GB').trigger('change');
@@ -46,8 +37,7 @@ async function getDefaultCountry() {
     const result = await apiService.fetchEvents();
     const totalItems = await result.page.totalElements;
     await getEvents(result);
-    await getPage(totalItems, apiService.country);
-    
+    getPage(totalItems, apiService.country);  
   }
 }
 
@@ -60,10 +50,9 @@ async function onSelectCountry(e) {
   clearMarkup();
   apiService.country = e.params.data.id;
   const result = await apiService.fetchEvents();
- const totalItems = await result.page.totalElements;
-    await getEvents(result);
-    await getPage(totalItems, apiService.country);
-  
+  const totalItems = await result.page.totalElements;
+  await getEvents(result);
+  getPage(totalItems, apiService.country);
   
 }
 
@@ -73,10 +62,7 @@ async function onKeywordInput(e) {
   apiService.keyword = inputValue;
   clearMarkup();
   const result = await apiService.fetchEvents();
- const totalItems = await result.page.totalElements;
-    await getEvents(result);
-    // await getPage(totalItems, apiService.country);
- 
+  await getEvents(result);
 }
 
 function clearMarkup() {

@@ -1,7 +1,6 @@
-// import getEvents from './get-events';
 import cardTemplate from '../templates/cards.hbs';
+
 const gallery = document.querySelector('.card-set');
-const paginationRef = document.querySelector('.tui-pagination');
 
 export default class ApiService{
   constructor() {
@@ -10,19 +9,75 @@ export default class ApiService{
     this.currentPage = 0;
     this.params = {};
   }
-async getCountryByLocation() {
-    try {
-      const response = await fetch('https://ipapi.co/json/');
-      const result = await response.json();
-      this.country = result.country;
-      // добавить условие проверки деф страны!!!!!!!
-      return result.country;
-    } catch (error) {
-        const DEFAULT_COUNTRY = 'GB';
-        this.country = DEFAULT_COUNTRY;
-        return DEFAULT_COUNTRY;
-      }
+
+  async getCountryByLocation() {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const result = await response.json();
+        this.country = result.country;
+        // добавить условие проверки деф страны!!!!!!!
+        return result.country;
+      } catch (error) {
+          const DEFAULT_COUNTRY = 'GB';
+          this.country = DEFAULT_COUNTRY;
+          return DEFAULT_COUNTRY;
+        }
   }
+
+  async fetchEvents() {
+    const BASE_URL = `https://app.ticketmaster.com/discovery/v2/events.json`;
+    const options = this.changeSearchOptions();
+
+    try {
+      const response = await fetch(BASE_URL+options);
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      //
+    }
+  }
+
+  async fetchEventByPage(page, country) {
+    const apiKey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
+    const sort = 'date,asc';
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=${country}&sort=${sort}&size=20&page=${page}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      
+      console.log(result);
+      this.getEvents(result._embedded.events);
+    } catch (error) {
+      //
+    }
+  }
+
+  async fetchEventById(id) {
+    const url = `https://app.ticketmaster.com/discovery/v2/events/${id}.json`;
+    const options = this.changeSearchOptions();
+  
+    try {
+        const response = await fetch(url+options);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        //
+    }
+  }
+
+  async getEvents(eventsArray) {
+    try {
+      await eventsArray.forEach(event => {
+          event.images = [event.images.find(image => !image.fallback)]
+      });
+      gallery.innerHTML = '';
+      this.createCardsMarkup(eventsArray);
+    } catch (error) {
+      //
+    }
+  }
+  
   changeSearchOptions() {
     this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
     this.params.countryCode = this.searchCountry;
@@ -43,55 +98,9 @@ async getCountryByLocation() {
       : "";
   }
 
-  async fetchEvents() {
-    const BASE_URL = `https://app.ticketmaster.com/discovery/v2/events.json`;
-    const options = this.changeSearchOptions();
-
-    try {
-      const response = await fetch(BASE_URL+options);
-      const result = await response.json();
-      // console.log(result);
-      return result;
-    } catch (error) {
-      //
-    }
+  createCardsMarkup(events) {
+    gallery.innerHTML = cardTemplate(events);
   }
-  async fetchEventByPage(page, country) {
-    const apiKey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
-    const sort = 'date,asc';
-      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=${country}&sort=${sort}&size=20&page=${page}`;
-  
-      try {
-          const response = await fetch(url);
-        const result = await response.json();
-        
-        console.log(result);
-      this.getEvents(result._embedded.events);
-        // return result._embedded.events;
-        
-      } catch (error) {
-          
-      }
-  }
-  async fetchEventById(id) {
-      const url = `https://app.ticketmaster.com/discovery/v2/events/${id}.json`;
-      const options = this.changeSearchOptions();
-    
-      try {
-          const response = await fetch(url+options);
-          const result = await response.json();
-          return result;
-      } catch (error) {
-          
-      }
-  }
-
-  // incrementPage(page) {
-  //   this.page = page;
-  // }
-  // resetPage() {
-  //   this.page = 0;
-  // }
   
   get keyword() {
     return this.searchKeyword;
@@ -111,46 +120,5 @@ async getCountryByLocation() {
   set page(newPage) {
     this.currentPage = newPage - 1;
   }
-
-
-async getEvents(eventsArray) {
-
-  try {
-    // if (!obj._embedded) {
-
-    //   galleryText.insertAdjacentHTML('afterbegin', '<span class="text">Sorry, no events on your request...:(</span>');
-      
-    // } else {
-    // const eventsArray = await apiService.fetchEventByPage(page, country);
-      // console.log(eventsArray);
-
-     await eventsArray.forEach(event => {
-        event.images = [event.images.find(image => !image.fallback)]
-     });
-    
-    gallery.innerHTML = '';
-    
-    
-      this.createCardsMarkup(eventsArray);
-
-    // }
-
-  } catch (error) {
-    paginationRef.innerHTML = '';
-    
-    
-    galleryText.insertAdjacentHTML('afterbegin', '<span class="text">Sorry, no events on your request &#9924</span>');
-    console.log(error);
-    
-  }
-}
-
-createCardsMarkup(events) {
-  gallery.innerHTML = cardTemplate(events);
-}
-
-
-
-
 }
 
