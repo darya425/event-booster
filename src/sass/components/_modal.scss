@@ -2,33 +2,20 @@
   overflow-y: scroll;
 }
 
-.basicLightbox {
-  padding: 414px 25px;
-
-  @media screen and (min-width: $tablet) {
-    padding: 961px 87px;
-  }
-}
-
 .modal {
   background-color: $modal-background;
-  position: relative;
-  max-width: 100%;
-  //top: 100px;
-  //left: 50%;
-  //transform: translate(-50%, -50%) scale(1);
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  //width: 272px;
-  //height: 915px;
+  width: 272px;
+  height: 915px;
   padding: 25px 20px 105px 20px;
   border-radius: 150px 0px;
 
   @media screen and (min-width: $tablet) {
-
-    top: 100px;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
     width: 595px;
     height: 831px;
     padding: 25px 25px 55px 50px;
@@ -225,7 +212,7 @@
 }
 
 .more-author-events {
-  min-width: 230px;
+  height: 40px;
   padding: 10px 3px;
   margin: 0 auto;
   margin-top: 25px;
@@ -253,6 +240,7 @@
     background-color: $title-text-color;
   }
 }
+
 .info-more {
   opacity: 1;
   }
@@ -260,4 +248,3 @@
   .info-more.is-hidden {
     opacity: 0;
   }
-  
