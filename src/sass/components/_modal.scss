@@ -39,8 +39,8 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;n
   right: 25px;
   border-radius: 50%;
   padding: 0;
@@ -48,11 +48,16 @@
   background-color: $modal-background;
   border: none;
   transition: background-color 250ms $timing-function;
-  font-size: 40px;
-  vertical-align: center;
+  font-size: 25px;
 
   &:hover {
     background-color: $title-text-color;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
   }
 }
 
@@ -201,11 +206,11 @@
   flex-direction: inherit;
 }
 .price-line::before {
-  content: " "; 
+  content: ' ';
   width: 30px;
   height: 20px;
   margin-right: 13px;
-  background-image: url("../images/ticket2.svg");
+  background-image: url('../images/ticket2.svg');
   background-size: contain;
 }
 
