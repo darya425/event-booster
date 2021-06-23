@@ -1,4 +1,4 @@
-.basicLightbox--visible{
+.basicLightbox--visible {
   overflow-y: scroll;
 }
 
@@ -36,16 +36,20 @@
 }
 
 .modal .close-window {
+  display: flex;
+  justify-content: center;
   position: absolute;
+  // width: 30px;
+  // height: 30px;
   right: 25px;
-  width: 30px;
-  height: 30px;
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
   background-color: $modal-background;
   border: none;
   transition: background-color 250ms $timing-function;
+  font-size: 40px;
+  vertical-align: center;
 
   &:hover {
     background-color: $title-text-color;
@@ -245,8 +249,8 @@
 
 .info-more {
   opacity: 1;
-  }
-  
-  .info-more.is-hidden {
-    opacity: 0;
-  }
+}
+
+.info-more.is-hidden {
+  opacity: 0;
+}
