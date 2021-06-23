@@ -38,7 +38,7 @@ async function getDefaultCountry() {
     }
 
     if (totalItems < 20) {
-      elements.classList.add('elements-none');
+      refs.elements.classList.add('elements-none');
     }
   
     
@@ -69,7 +69,7 @@ async function onSelectCountry(e) {
   }
 
   if (totalItems < 20) {
-    elements.classList.add('elements-none');
+    refs.elements.classList.add('elements-none');
   }
 }
 
@@ -87,7 +87,7 @@ async function onKeywordInput(e) {
   }
 
   if (totalItems < 20) {
-    elements.classList.add('elements-none');
+    refs.elements.classList.add('elements-none');
   }
 }
 
