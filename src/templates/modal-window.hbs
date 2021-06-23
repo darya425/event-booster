@@ -1,8 +1,5 @@
 <div class="modal">
-    <button class="close-window">X
-        {{!-- <svg width="25" height="25" class="close-icon">
-            <use href="../src/images/sprite.svg#icon-cross-icon"></use>
-        </svg> --}}
+    <button class="close-window">&#10006;
     </button>
 
 {{#each images}}
@@ -32,7 +29,7 @@
         <li class="list-item">
             <h3 class="event-title-modal">INFO</h3>
             <p class="text-info">{{name}}</p>
-            <p class="text-info"><a href="{{url}}" target="_blank" class="">=> Official event web-site</a></p>
+            {{!-- <p class="text-info"><a href="{{url}}" target="_blank" class="">=> Official event web-site</a></p> --}}
         </li>
        
        <li class="list-item">
@@ -62,8 +59,7 @@
                 {{!-- <svg width="30" height="20" class="barcode-icon">
                     <use href="../src/images/sprite.svg#icon-barcode-icon"></use>
                 </svg> --}}
-                <p class="text-info">{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max }}
-                            {{priceRanges.0.currency}}</p>
+                <p class="text-info">{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max }} {{priceRanges.0.currency}}</p>
             </div>
             <a href="{{url}}" target="_blank" class="buy-ticket-button">BUY TICKETS</a>
             {{ else }}
@@ -74,10 +70,9 @@
 </div>
 <button class="more-author-events">MORE FROM THIS AUTHOR</button>
 <div class="info-more is-hidden">
-    <h3 class="event-title-modal">PROMOTER</h3>
-    <p>{{promoter.name}}</p>
+    {{!-- <h3 class="event-title-modal">PROMOTER</h3>
+    <p>{{promoter.name}}</p> --}}
+    <p class="text-info"><a href="{{url}}" target="_blank" class="">=> Official event web-site</a></p>
 </div>
 
 </div>
-
-{{!-- <button class="buy-ticket-button">BUY TICKETS</button> --}}

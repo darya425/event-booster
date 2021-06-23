@@ -10,6 +10,7 @@ const refs = {
   keywordInput: document.querySelector('.js-form-keyword'),
   gallery: document.querySelector('.card-set'),
   galleryText: document.querySelector('.default-info'),
+  pafination: document.querySelector('.tui-pagination'),
 }
 
 //initialization select2 list of country
@@ -28,8 +29,12 @@ async function getDefaultCountry() {
     $("#selectCountry").select2().val(defaultCountry).trigger('change');
     const result = await apiService.fetchEvents();
     const totalItems = await result.page.totalElements;
+    console.log(totalItems);
     await getEvents(result);
-    getPage(totalItems, defaultCountry);
+    
+    if (totalItems > 0) {
+      getPage(totalItems, defaultCountry);
+    }
     
   } else {
     $("#selectCountry").select2().val('GB').trigger('change');
@@ -52,15 +57,18 @@ async function onSelectCountry(e) {
   const result = await apiService.fetchEvents();
   const totalItems = await result.page.totalElements;
   await getEvents(result);
-  getPage(totalItems, apiService.country);
+
+  if (totalItems > 0) {
+    getPage(totalItems, apiService.country);
+  }
   
 }
 
 async function onKeywordInput(e) {
   e.preventDefault();
+  clearMarkup();
   const inputValue = e.target.value;
   apiService.keyword = inputValue;
-  clearMarkup();
   const result = await apiService.fetchEvents();
   await getEvents(result);
 }
@@ -68,6 +76,7 @@ async function onKeywordInput(e) {
 function clearMarkup() {
   refs.gallery.innerHTML = '';
   refs.galleryText.innerHTML = '';
+  refs.pafination.innerHTML = '';
 }
 
 getDefaultCountry();

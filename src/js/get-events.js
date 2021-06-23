@@ -4,6 +4,7 @@ const galleryText = document.querySelector('.default-info');
 
 export default async function getEvents(obj) {
   try {
+      galleryText.innerHTML = '';
       const eventsArray = obj._embedded.events;
       console.log(eventsArray);
       eventsArray.forEach(event => {
@@ -11,7 +12,8 @@ export default async function getEvents(obj) {
       });
       createCardsMarkup(eventsArray);
   } catch (error) {
-    gallery.innerHTML = ''; 
+    console.log(error);
+    // gallery.innerHTML = '';
     galleryText.insertAdjacentHTML('beforeend', '<p class="text">Sorry, no events on your request. Please enter another request.</p>');
     galleryText.insertAdjacentHTML('beforeend', '<div id="walk-container"><div id="walk"></div></div>'); 
   }
