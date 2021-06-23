@@ -11,6 +11,7 @@ const refs = {
   gallery: document.querySelector('.card-set'),
   galleryText: document.querySelector('.default-info'),
   pafination: document.querySelector('.tui-pagination'),
+  elements: document.querySelector('.elements'),
 }
 
 //initialization select2 list of country
@@ -35,6 +36,11 @@ async function getDefaultCountry() {
     if (totalItems > 0) {
       getPage(totalItems, defaultCountry);
     }
+
+    if (totalItems < 20) {
+      elements.classList.add('elements-none');
+    }
+  
     
   } else {
     $("#selectCountry").select2().val('GB').trigger('change');
@@ -61,7 +67,10 @@ async function onSelectCountry(e) {
   if (totalItems > 0) {
     getPage(totalItems, apiService.country);
   }
-  
+
+  if (totalItems < 20) {
+    elements.classList.add('elements-none');
+  }
 }
 
 async function onKeywordInput(e) {
@@ -70,7 +79,16 @@ async function onKeywordInput(e) {
   const inputValue = e.target.value;
   apiService.keyword = inputValue;
   const result = await apiService.fetchEvents();
+  const totalItems = await result.page.totalElements;
   await getEvents(result);
+
+  if (totalItems > 0) {
+    getPage(totalItems, apiService.country);
+  }
+
+  if (totalItems < 20) {
+    elements.classList.add('elements-none');
+  }
 }
 
 function clearMarkup() {
