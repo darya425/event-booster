@@ -14,7 +14,7 @@ export default async function getEvents(obj) {
   } catch (error) {
     console.log(error);
     // gallery.innerHTML = '';
-    galleryText.insertAdjacentHTML('beforeend', '<p class="text">Sorry, no events on your request. Please enter another request.</p>');
+    galleryText.insertAdjacentHTML('beforeend', '<p class="text">Sorry, no events matching your request &#129335; but we are ready to go and find something else for you. Try us again! &#128521;</p>');
     galleryText.insertAdjacentHTML('beforeend', '<div id="walk-container"><div id="walk"></div></div>'); 
   }
 }
