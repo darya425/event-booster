@@ -1,6 +1,7 @@
 // Standard settings
 body {
   position: relative;
+  min-height: 92vh;
   background-color: $modal-text;
   background-image: url('../images/noise-body.png');
 }
