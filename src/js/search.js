@@ -71,7 +71,7 @@ async function onSelectCountry(e) {
   if (totalItems < 20) {
     refs.elements.classList.add('elements-none');
   } else {
-    refs.elements.classList.toggle('elements-none');
+    refs.elements.classList.remove('elements-none');
   }
 }
 
@@ -91,7 +91,7 @@ async function onKeywordInput(e) {
   if (totalItems < 20) {
     refs.elements.classList.add('elements-none');
   } else {
-    refs.elements.classList.toggle('elements-none');
+    refs.elements.classList.remove('elements-none');
   }
 }
 
