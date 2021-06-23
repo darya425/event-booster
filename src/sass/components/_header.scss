@@ -17,7 +17,7 @@
     }
   }
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: $min-mobile) {
     padding-top: 78px;
     height: 364px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
@@ -31,7 +31,7 @@
     }
   }
 
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: $min-tablet) {
     padding-top: 40px;
     height: 446px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
@@ -45,7 +45,7 @@
     }
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
@@ -75,10 +75,6 @@
     font-size: 30px;
     line-height: 1.23;
   }
-
-  // @media screen and (min-width: 769px) {
-  //   margin-bottom: 60px;
-  // }
 
   @media screen and (min-width: $desktop) {
     margin-bottom: 52px;
