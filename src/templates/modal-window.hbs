@@ -56,11 +56,10 @@
             <h3 class="event-title-modal">PRICES</h3>
             {{#if priceRanges.length}}
             <div class="price-line">
-                <svg width="30" height="20" class="barcode-icon">
+                {{!-- <svg width="30" height="20" class="barcode-icon">
                     <use href="../src/images/sprite.svg#icon-barcode-icon"></use>
-                </svg>
-                <p class="text-info ">{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max }}
-                            {{priceRanges.0.currency}}</p>
+                </svg> --}}
+                <p class="text-info">{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max }} {{priceRanges.0.currency}}</p>
             </div>
             <a href="{{url}}" target="_blank" class="buy-ticket-button">BUY TICKETS</a>
             {{ else }}
