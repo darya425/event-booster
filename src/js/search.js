@@ -30,7 +30,7 @@ async function getDefaultCountry() {
     $("#selectCountry").select2().val(defaultCountry).trigger('change');
     const result = await apiService.fetchEvents();
     const totalItems = await result.page.totalElements;
-    console.log(totalItems);
+    
     await getEvents(result);
     
     if (totalItems > 0) {
