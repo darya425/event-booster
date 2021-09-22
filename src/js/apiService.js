@@ -2,7 +2,7 @@ import cardTemplate from '../templates/cards.hbs';
 
 const gallery = document.querySelector('.card-set');
 
-export default class ApiService{
+export default class ApiService {
   constructor() {
     this.searchKeyword = '';
     this.searchCountry = '';
@@ -11,17 +11,16 @@ export default class ApiService{
   }
 
   async getCountryByLocation() {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const result = await response.json();
-        this.country = result.country;
-        // добавить условие проверки деф страны!!!!!!!
-        return result.country;
-      } catch (error) {
-          const DEFAULT_COUNTRY = 'GB';
-          this.country = DEFAULT_COUNTRY;
-          return DEFAULT_COUNTRY;
-        }
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      const result = await response.json();
+      this.country = result.country;
+      return result.country;
+    } catch (error) {
+      const DEFAULT_COUNTRY = 'GB';
+      this.country = DEFAULT_COUNTRY;
+      return DEFAULT_COUNTRY;
+    }
   }
 
   async fetchEvents() {
@@ -29,11 +28,11 @@ export default class ApiService{
     const options = this.changeSearchOptions();
 
     try {
-      const response = await fetch(BASE_URL+options);
+      const response = await fetch(BASE_URL + options);
       const result = await response.json();
       return result;
     } catch (error) {
-      //
+      console.log(error);
     }
   }
 
@@ -45,39 +44,38 @@ export default class ApiService{
     try {
       const response = await fetch(url);
       const result = await response.json();
-      
-      console.log(result);
+
       this.getEvents(result._embedded.events);
     } catch (error) {
-      //
+      console.log(error);
     }
   }
 
   async fetchEventById(id) {
     const url = `https://app.ticketmaster.com/discovery/v2/events/${id}.json`;
     const options = this.changeSearchOptions();
-  
+
     try {
-        const response = await fetch(url+options);
-        const result = await response.json();
-        return result;
+      const response = await fetch(url + options);
+      const result = await response.json();
+      return result;
     } catch (error) {
-        //
+      console.log(error);
     }
   }
 
   async getEvents(eventsArray) {
     try {
       await eventsArray.forEach(event => {
-          event.images = [event.images.find(image => !image.fallback)]
+        event.images = [event.images.find(image => !image.fallback)];
       });
       gallery.innerHTML = '';
       this.createCardsMarkup(eventsArray);
     } catch (error) {
-      //
+      console.log(error);
     }
   }
-  
+
   changeSearchOptions() {
     this.params.apikey = 'YtCjidrbY3XtU1FoAyynQpKvw26PaQjK';
     this.params.countryCode = this.searchCountry;
@@ -91,17 +89,17 @@ export default class ApiService{
     }
     const keys = Object.keys(this.params);
     return keys.length
-      ?
-        "?" + keys
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(this.params[key]))
-        .join("&")
-      : "";
+      ? '?' +
+          keys
+            .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(this.params[key]))
+            .join('&')
+      : '';
   }
 
   createCardsMarkup(events) {
     gallery.innerHTML = cardTemplate(events);
   }
-  
+
   get keyword() {
     return this.searchKeyword;
   }
@@ -121,4 +119,3 @@ export default class ApiService{
     this.currentPage = newPage - 1;
   }
 }
-
